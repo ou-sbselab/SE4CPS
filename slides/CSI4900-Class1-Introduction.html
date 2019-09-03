@@ -1,0 +1,838 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta property="og:type" content="website"><meta name="twitter:card" content="summary"><style>@media screen{body,html{background:#000;height:100%;margin:0;overflow:hidden}[data-bespoke-marp-fragment=inactive]{visibility:hidden}.bespoke-marp-osc{display:none;opacity:0}.bespoke-marp-parent{bottom:0;left:0;position:absolute;right:0;top:0}.bespoke-marp-parent>.bespoke-marp-osc{background:rgba(0,0,0,.65);border-radius:7px;bottom:50px;color:#fff;display:block;font-family:Helvetica,Arial,sans-serif;font-size:16px;left:50%;line-height:0;opacity:1;padding:12px;position:absolute;touch-action:manipulation;transform:translateX(-50%);transition:opacity .2s linear;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;white-space:nowrap;z-index:1}.bespoke-marp-parent>.bespoke-marp-osc>*{margin-left:6px}.bespoke-marp-parent>.bespoke-marp-osc>:first-child{margin-left:0}.bespoke-marp-parent>.bespoke-marp-osc>span{opacity:.8}.bespoke-marp-parent>.bespoke-marp-osc>span[data-bespoke-marp-osc=page]{display:inline-block;min-width:140px;text-align:center}.bespoke-marp-parent>.bespoke-marp-osc>button{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;color:inherit;cursor:pointer;font-size:inherit;opacity:.8;outline:none;padding:0;transition:opacity .2s linear;-webkit-tap-highlight-color:transparent}.bespoke-marp-parent>.bespoke-marp-osc>button:disabled{cursor:not-allowed;opacity:.15!important}.bespoke-marp-parent>.bespoke-marp-osc>button:hover{opacity:1}.bespoke-marp-parent>.bespoke-marp-osc>button:hover:active{opacity:.6}.bespoke-marp-parent>.bespoke-marp-osc>button:hover:not(:disabled){transition:none}.bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=prev]{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI1IiBkPSJNNjggOTBMMjggNTBsNDAtNDAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;height:32px;overflow:hidden;text-indent:100%;white-space:nowrap;width:32px}.bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=next]{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI1IiBkPSJNMzIgOTBsNDAtNDAtNDAtNDAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;height:32px;overflow:hidden;text-indent:100%;white-space:nowrap;width:32px}.bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen]{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDpub25lO3N0cm9rZTojZmZmO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6NXB4fTwvc3R5bGU+PC9kZWZzPjxyZWN0IGNsYXNzPSJhIiB4PSIxMCIgeT0iMjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI2MCIgcng9IjUuNjciLz48cGF0aCBjbGFzcz0iYSIgZD0iTTQwIDcwSDIwVjUwbTIwIDBMMjAgNzBtNDAtNDBoMjB2MjBtLTIwIDBsMjAtMjAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;height:32px;overflow:hidden;text-indent:100%;white-space:nowrap;width:32px}.bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen].exit{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDpub25lO3N0cm9rZTojZmZmO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6NXB4fTwvc3R5bGU+PC9kZWZzPjxyZWN0IGNsYXNzPSJhIiB4PSIxMCIgeT0iMjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI2MCIgcng9IjUuNjciLz48cGF0aCBjbGFzcz0iYSIgZD0iTTIwIDUwaDIwdjIwbS0yMCAwbDIwLTIwbTQwIDBINjBWMzBtMjAgMEw2MCA1MCIvPjwvc3ZnPg==")}.bespoke-marp-parent.bespoke-marp-inactive{cursor:none}.bespoke-marp-parent.bespoke-marp-inactive>.bespoke-marp-osc{opacity:0;pointer-events:none}svg.bespoke-marp-slide{height:100%;left:0;pointer-events:none;position:absolute;top:0;width:100%;z-index:-1}svg.bespoke-marp-slide.bespoke-marp-active{pointer-events:auto;z-index:0}.bespoke-progress-parent{background:#222;display:flex;height:5px;width:100%}.bespoke-progress-parent+.bespoke-marp-parent{top:5px}.bespoke-progress-parent .bespoke-progress-bar{flex:0 0 0;background:#0288d1;transition:flex-basis .2s cubic-bezier(0,1,1,1)}}@media print{.bespoke-marp-osc,.bespoke-progress-parent{display:none!important;transition:none!important}.bespoke-marp-parent{top:0}}</style><style>@charset "UTF-8";@import url("https://fonts.googleapis.com/css?family=Lato:400,900|Roboto+Mono:400,700");@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');article#presentation > svg > foreignObject > section {
+  width: 1280px;
+  height: 720px;
+
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+
+  scroll-snap-align: center center;
+}article#presentation > svg > foreignObject > section::after {
+  bottom: 0;
+  content: attr(data-marpit-pagination);
+  padding: inherit;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}article#presentation > svg > foreignObject > section:not([data-marpit-pagination])::after {
+  display: none;
+}/* Normalization */article#presentation > svg > foreignObject > section h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}@page {
+  size: 1280px 720px;
+  margin: 0;
+}@media print {html, body {
+  background-color: #fff;
+  margin: 0;
+  page-break-inside: avoid;
+  break-inside: avoid-page;
+}
+  article#presentation > svg > foreignObject > section {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  article#presentation > svg > foreignObject > section, article#presentation > svg > foreignObject > section * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  article#presentation > svg[data-marpit-svg] {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+/*!
+ * Marp / Marpit Gaia theme.
+ *
+ * @theme gaia
+ * @author Yuki Hattori
+ *
+ * @auto-scaling true
+ * @size 4:3 960px 720px
+ */article#presentation > svg > foreignObject > section .hljs{display:block;overflow-x:auto;padding:.5em;background:#000;color:#f8f8f8}article#presentation > svg > foreignObject > section .hljs-comment,article#presentation > svg > foreignObject > section .hljs-quote{color:#aeaeae;font-style:italic}article#presentation > svg > foreignObject > section .hljs-keyword,article#presentation > svg > foreignObject > section .hljs-selector-tag,article#presentation > svg > foreignObject > section .hljs-type{color:#e28964}article#presentation > svg > foreignObject > section .hljs-string{color:#65b042}article#presentation > svg > foreignObject > section .hljs-subst{color:#daefa3}article#presentation > svg > foreignObject > section .hljs-link,article#presentation > svg > foreignObject > section .hljs-regexp{color:#e9c062}article#presentation > svg > foreignObject > section .hljs-name,article#presentation > svg > foreignObject > section .hljs-section,article#presentation > svg > foreignObject > section .hljs-tag,article#presentation > svg > foreignObject > section .hljs-title{color:#89bdff}article#presentation > svg > foreignObject > section .hljs-class .hljs-title,article#presentation > svg > foreignObject > section .hljs-doctag{text-decoration:underline}article#presentation > svg > foreignObject > section .hljs-bullet,article#presentation > svg > foreignObject > section .hljs-number,article#presentation > svg > foreignObject > section .hljs-symbol{color:#3387cc}article#presentation > svg > foreignObject > section .hljs-params,article#presentation > svg > foreignObject > section .hljs-template-variable,article#presentation > svg > foreignObject > section .hljs-variable{color:#3e87e3}article#presentation > svg > foreignObject > section .hljs-attribute{color:#cda869}article#presentation > svg > foreignObject > section .hljs-meta{color:#8996a8}article#presentation > svg > foreignObject > section .hljs-formula{background-color:#0e2231;color:#f8f8f8;font-style:italic}article#presentation > svg > foreignObject > section .hljs-addition{background-color:#253b22;color:#f8f8f8}article#presentation > svg > foreignObject > section .hljs-deletion{background-color:#420e09;color:#f8f8f8}article#presentation > svg > foreignObject > section .hljs-selector-class{color:#9b703f}article#presentation > svg > foreignObject > section .hljs-selector-id{color:#8b98ab}article#presentation > svg > foreignObject > section .hljs-emphasis{font-style:italic}article#presentation > svg > foreignObject > section .hljs-strong{font-weight:700}article#presentation > svg > foreignObject > section svg[data-marp-fitting=svg]{max-height:580px}article#presentation > svg > foreignObject > section h1,article#presentation > svg > foreignObject > section h2,article#presentation > svg > foreignObject > section h3,article#presentation > svg > foreignObject > section h4,article#presentation > svg > foreignObject > section h5,article#presentation > svg > foreignObject > section h6{margin:.5em 0 0}article#presentation > svg > foreignObject > section h1 strong,article#presentation > svg > foreignObject > section h2 strong,article#presentation > svg > foreignObject > section h3 strong,article#presentation > svg > foreignObject > section h4 strong,article#presentation > svg > foreignObject > section h5 strong,article#presentation > svg > foreignObject > section h6 strong{font-weight:inherit}article#presentation > svg > foreignObject > section h1{font-size:1.8em}article#presentation > svg > foreignObject > section h2{font-size:1.5em}article#presentation > svg > foreignObject > section h3{font-size:1.3em}article#presentation > svg > foreignObject > section h4{font-size:1.1em}article#presentation > svg > foreignObject > section h5{font-size:1em}article#presentation > svg > foreignObject > section h6{font-size:.9em}article#presentation > svg > foreignObject > section blockquote,article#presentation > svg > foreignObject > section p{margin:1em 0 0}article#presentation > svg > foreignObject > section ol>li,article#presentation > svg > foreignObject > section ul>li{margin:.3em 0 0}article#presentation > svg > foreignObject > section ol>li>p,article#presentation > svg > foreignObject > section ul>li>p{margin:.6em 0 0}article#presentation > svg > foreignObject > section code{display:inline-block;font-family:Roboto Mono,monospace;font-size:.8em;letter-spacing:0;margin:-.1em .15em;padding:.1em .2em;vertical-align:baseline}article#presentation > svg > foreignObject > section pre{display:block;margin:1em 0 0;min-height:1em;overflow:visible}article#presentation > svg > foreignObject > section pre code{box-sizing:border-box;margin:0;min-width:100%;padding:.5em;font-size:.7em}article#presentation > svg > foreignObject > section pre code svg[data-marp-fitting=svg]{max-height:calc(580px - 1em)}article#presentation > svg > foreignObject > section blockquote{margin:1em 0 0;padding:0 1em;position:relative}article#presentation > svg > foreignObject > section blockquote:after,article#presentation > svg > foreignObject > section blockquote:before{content:"“";display:block;font-family:Times New Roman,serif;font-weight:700;position:absolute}article#presentation > svg > foreignObject > section blockquote:before{top:0;left:0}article#presentation > svg > foreignObject > section blockquote:after{right:0;bottom:0;transform:rotate(180deg)}article#presentation > svg > foreignObject > section blockquote>:first-child{margin-top:0}article#presentation > svg > foreignObject > section mark{background:transparent}article#presentation > svg > foreignObject > section table{border-spacing:0;border-collapse:collapse;margin:1em 0 0}article#presentation > svg > foreignObject > section table td,article#presentation > svg > foreignObject > section table th{padding:.2em .4em;border-width:1px;border-style:solid}article#presentation > svg > foreignObject > section{background-image:linear-gradient(135deg,hsla(0,0%,53.3%,0),hsla(0,0%,53.3%,.02) 50%,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,.05));font-size:35px;font-family:Lato,Avenir Next,Avenir,Trebuchet MS,Segoe UI,sans-serif;height:720px;line-height:1.35;letter-spacing:1.25px;padding:70px;width:1280px;color:#455a64;background-color:#fff8e1}article#presentation > svg > foreignObject > section>:first-child,article#presentation > svg > foreignObject > section>header:first-child+*{margin-top:0}article#presentation > svg > foreignObject > section a,article#presentation > svg > foreignObject > section mark{color:#0288d1}article#presentation > svg > foreignObject > section code{background:#6a7a7d;color:#fff8e1}article#presentation > svg > foreignObject > section h1 strong,article#presentation > svg > foreignObject > section h2 strong,article#presentation > svg > foreignObject > section h3 strong,article#presentation > svg > foreignObject > section h4 strong,article#presentation > svg > foreignObject > section h5 strong,article#presentation > svg > foreignObject > section h6 strong{color:#0288d1}article#presentation > svg > foreignObject > section pre>code{background:#455a64}article#presentation > svg > foreignObject > section blockquote:after,article#presentation > svg > foreignObject > section blockquote:before,article#presentation > svg > foreignObject > section footer,article#presentation > svg > foreignObject > section header,article#presentation > svg > foreignObject > section section:after{color:#6a7a7d}article#presentation > svg > foreignObject > section table td,article#presentation > svg > foreignObject > section table th{border-color:#455a64}article#presentation > svg > foreignObject > section table thead th{background:#455a64;color:#fff8e1}article#presentation > svg > foreignObject > section table tbody>tr:nth-child(odd) td,article#presentation > svg > foreignObject > section table tbody>tr:nth-child(odd) th{background:rgba(69,90,100,.1)}article#presentation > svg > foreignObject > section.invert{color:#fff8e1;background-color:#455a64}article#presentation > svg > foreignObject > section.invert a,article#presentation > svg > foreignObject > section.invert mark{color:#81d4fa}article#presentation > svg > foreignObject > section.invert code{background:#dad8c8;color:#455a64}article#presentation > svg > foreignObject > section.invert h1 strong,article#presentation > svg > foreignObject > section.invert h2 strong,article#presentation > svg > foreignObject > section.invert h3 strong,article#presentation > svg > foreignObject > section.invert h4 strong,article#presentation > svg > foreignObject > section.invert h5 strong,article#presentation > svg > foreignObject > section.invert h6 strong{color:#81d4fa}article#presentation > svg > foreignObject > section.invert pre>code{background:#fff8e1}article#presentation > svg > foreignObject > section.invert blockquote:after,article#presentation > svg > foreignObject > section.invert blockquote:before,article#presentation > svg > foreignObject > section.invert footer,article#presentation > svg > foreignObject > section.invert header,article#presentation > svg > foreignObject > section.invert section:after{color:#dad8c8}article#presentation > svg > foreignObject > section.invert table td,article#presentation > svg > foreignObject > section.invert table th{border-color:#fff8e1}article#presentation > svg > foreignObject > section.invert table thead th{background:#fff8e1;color:#455a64}article#presentation > svg > foreignObject > section.invert table tbody>tr:nth-child(odd) td,article#presentation > svg > foreignObject > section.invert table tbody>tr:nth-child(odd) th{background:rgba(255,248,225,.1)}article#presentation > svg > foreignObject > section.gaia{color:#fff8e1;background-color:#0288d1}article#presentation > svg > foreignObject > section.gaia a,article#presentation > svg > foreignObject > section.gaia mark{color:#81d4fa}article#presentation > svg > foreignObject > section.gaia code{background:#cce2de;color:#0288d1}article#presentation > svg > foreignObject > section.gaia h1 strong,article#presentation > svg > foreignObject > section.gaia h2 strong,article#presentation > svg > foreignObject > section.gaia h3 strong,article#presentation > svg > foreignObject > section.gaia h4 strong,article#presentation > svg > foreignObject > section.gaia h5 strong,article#presentation > svg > foreignObject > section.gaia h6 strong{color:#81d4fa}article#presentation > svg > foreignObject > section.gaia pre>code{background:#fff8e1}article#presentation > svg > foreignObject > section.gaia blockquote:after,article#presentation > svg > foreignObject > section.gaia blockquote:before,article#presentation > svg > foreignObject > section.gaia footer,article#presentation > svg > foreignObject > section.gaia header,article#presentation > svg > foreignObject > section.gaia section:after{color:#cce2de}article#presentation > svg > foreignObject > section.gaia table td,article#presentation > svg > foreignObject > section.gaia table th{border-color:#fff8e1}article#presentation > svg > foreignObject > section.gaia table thead th{background:#fff8e1;color:#0288d1}article#presentation > svg > foreignObject > section.gaia table tbody>tr:nth-child(odd) td,article#presentation > svg > foreignObject > section.gaia table tbody>tr:nth-child(odd) th{background:rgba(255,248,225,.1)}article#presentation > svg > foreignObject > section.lead{display:flex;flex-direction:column;flex-wrap:nowrap;justify-content:center}article#presentation > svg > foreignObject > section.lead h1,article#presentation > svg > foreignObject > section.lead h2,article#presentation > svg > foreignObject > section.lead h3,article#presentation > svg > foreignObject > section.lead h4,article#presentation > svg > foreignObject > section.lead h5,article#presentation > svg > foreignObject > section.lead h6{text-align:center}article#presentation > svg > foreignObject > section.lead h1 svg[data-marp-fitting=svg],article#presentation > svg > foreignObject > section.lead h2 svg[data-marp-fitting=svg],article#presentation > svg > foreignObject > section.lead h3 svg[data-marp-fitting=svg],article#presentation > svg > foreignObject > section.lead h4 svg[data-marp-fitting=svg],article#presentation > svg > foreignObject > section.lead h5 svg[data-marp-fitting=svg],article#presentation > svg > foreignObject > section.lead h6 svg[data-marp-fitting=svg]{--preserve-aspect-ratio:xMidYMid meet}article#presentation > svg > foreignObject > section.lead p{text-align:center}article#presentation > svg > foreignObject > section.lead blockquote>h1,article#presentation > svg > foreignObject > section.lead blockquote>h2,article#presentation > svg > foreignObject > section.lead blockquote>h3,article#presentation > svg > foreignObject > section.lead blockquote>h4,article#presentation > svg > foreignObject > section.lead blockquote>h5,article#presentation > svg > foreignObject > section.lead blockquote>h6,article#presentation > svg > foreignObject > section.lead blockquote>p{text-align:left}article#presentation > svg > foreignObject > section.lead blockquote svg[data-marp-fitting=svg]:not([data-marp-fitting-math]){--preserve-aspect-ratio:xMinYMin meet}article#presentation > svg > foreignObject > section.lead ol>li>p,article#presentation > svg > foreignObject > section.lead ul>li>p{text-align:left}article#presentation > svg > foreignObject > section.lead table{margin-left:auto;margin-right:auto}article#presentation > svg > foreignObject > section footer,article#presentation > svg > foreignObject > section header,article#presentation > svg > foreignObject > section:after{box-sizing:border-box;font-size:66%;height:70px;line-height:50px;overflow:hidden;padding:10px 25px;position:absolute}article#presentation > svg > foreignObject > section header{top:0}article#presentation > svg > foreignObject > section footer,article#presentation > svg > foreignObject > section header{left:0;right:0}article#presentation > svg > foreignObject > section footer{bottom:0}article#presentation > svg > foreignObject > section:after{right:0;bottom:0;font-size:80%}@font-face{font-family:KaTeX_AMS;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_AMS-Regular.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_AMS-Regular.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_AMS-Regular.ttf') format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Caligraphic;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Caligraphic-Bold.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Caligraphic-Bold.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Caligraphic-Bold.ttf') format("truetype");font-weight:700;font-style:normal}@font-face{font-family:KaTeX_Caligraphic;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Caligraphic-Regular.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Caligraphic-Regular.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Caligraphic-Regular.ttf') format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Fraktur;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Fraktur-Bold.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Fraktur-Bold.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Fraktur-Bold.ttf') format("truetype");font-weight:700;font-style:normal}@font-face{font-family:KaTeX_Fraktur;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Fraktur-Regular.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Fraktur-Regular.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Fraktur-Regular.ttf') format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Main;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Main-Bold.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Main-Bold.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Main-Bold.ttf') format("truetype");font-weight:700;font-style:normal}@font-face{font-family:KaTeX_Main;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Main-BoldItalic.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Main-BoldItalic.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Main-BoldItalic.ttf') format("truetype");font-weight:700;font-style:italic}@font-face{font-family:KaTeX_Main;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Main-Italic.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Main-Italic.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Main-Italic.ttf') format("truetype");font-weight:400;font-style:italic}@font-face{font-family:KaTeX_Main;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Main-Regular.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Main-Regular.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Main-Regular.ttf') format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Math;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Math-BoldItalic.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Math-BoldItalic.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Math-BoldItalic.ttf') format("truetype");font-weight:700;font-style:italic}@font-face{font-family:KaTeX_Math;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Math-Italic.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Math-Italic.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Math-Italic.ttf') format("truetype");font-weight:400;font-style:italic}@font-face{font-family:"KaTeX_SansSerif";src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_SansSerif-Bold.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_SansSerif-Bold.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_SansSerif-Bold.ttf') format("truetype");font-weight:700;font-style:normal}@font-face{font-family:"KaTeX_SansSerif";src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_SansSerif-Italic.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_SansSerif-Italic.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_SansSerif-Italic.ttf') format("truetype");font-weight:400;font-style:italic}@font-face{font-family:"KaTeX_SansSerif";src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_SansSerif-Regular.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_SansSerif-Regular.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_SansSerif-Regular.ttf') format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Script;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Script-Regular.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Script-Regular.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Script-Regular.ttf') format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Size1;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Size1-Regular.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Size1-Regular.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Size1-Regular.ttf') format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Size2;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Size2-Regular.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Size2-Regular.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Size2-Regular.ttf') format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Size3;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Size3-Regular.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Size3-Regular.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Size3-Regular.ttf') format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Size4;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Size4-Regular.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Size4-Regular.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Size4-Regular.ttf') format("truetype");font-weight:400;font-style:normal}@font-face{font-family:KaTeX_Typewriter;src:url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Typewriter-Regular.woff2') format("woff2"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Typewriter-Regular.woff') format("woff"),url('https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/fonts/KaTeX_Typewriter-Regular.ttf') format("truetype");font-weight:400;font-style:normal}article#presentation > svg > foreignObject > section .katex{font:normal 1.21em KaTeX_Main,Times New Roman,serif;line-height:1.2;text-indent:0;text-rendering:auto}article#presentation > svg > foreignObject > section .katex *{-ms-high-contrast-adjust:none!important}article#presentation > svg > foreignObject > section .katex .katex-version:after{content:"0.11.0"}article#presentation > svg > foreignObject > section .katex .katex-mathml{position:absolute;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}article#presentation > svg > foreignObject > section .katex .katex-html>.newline{display:block}article#presentation > svg > foreignObject > section .katex .base{position:relative;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}article#presentation > svg > foreignObject > section .katex .base,article#presentation > svg > foreignObject > section .katex .strut{display:inline-block}article#presentation > svg > foreignObject > section .katex .textbf{font-weight:700}article#presentation > svg > foreignObject > section .katex .textit{font-style:italic}article#presentation > svg > foreignObject > section .katex .textrm{font-family:KaTeX_Main}article#presentation > svg > foreignObject > section .katex .textsf{font-family:KaTeX_SansSerif}article#presentation > svg > foreignObject > section .katex .texttt{font-family:KaTeX_Typewriter}article#presentation > svg > foreignObject > section .katex .mathdefault{font-family:KaTeX_Math;font-style:italic}article#presentation > svg > foreignObject > section .katex .mathit{font-family:KaTeX_Main;font-style:italic}article#presentation > svg > foreignObject > section .katex .mathrm{font-style:normal}article#presentation > svg > foreignObject > section .katex .mathbf{font-family:KaTeX_Main;font-weight:700}article#presentation > svg > foreignObject > section .katex .boldsymbol{font-family:KaTeX_Math;font-weight:700;font-style:italic}article#presentation > svg > foreignObject > section .katex .amsrm,article#presentation > svg > foreignObject > section .katex .mathbb,article#presentation > svg > foreignObject > section .katex .textbb{font-family:KaTeX_AMS}article#presentation > svg > foreignObject > section .katex .mathcal{font-family:KaTeX_Caligraphic}article#presentation > svg > foreignObject > section .katex .mathfrak,article#presentation > svg > foreignObject > section .katex .textfrak{font-family:KaTeX_Fraktur}article#presentation > svg > foreignObject > section .katex .mathtt{font-family:KaTeX_Typewriter}article#presentation > svg > foreignObject > section .katex .mathscr,article#presentation > svg > foreignObject > section .katex .textscr{font-family:KaTeX_Script}article#presentation > svg > foreignObject > section .katex .mathsf,article#presentation > svg > foreignObject > section .katex .textsf{font-family:KaTeX_SansSerif}article#presentation > svg > foreignObject > section .katex .mathboldsf,article#presentation > svg > foreignObject > section .katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:700}article#presentation > svg > foreignObject > section .katex .mathitsf,article#presentation > svg > foreignObject > section .katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}article#presentation > svg > foreignObject > section .katex .mainrm{font-family:KaTeX_Main;font-style:normal}article#presentation > svg > foreignObject > section .katex .vlist-t{display:inline-table;table-layout:fixed}article#presentation > svg > foreignObject > section .katex .vlist-r{display:table-row}article#presentation > svg > foreignObject > section .katex .vlist{display:table-cell;vertical-align:bottom;position:relative}article#presentation > svg > foreignObject > section .katex .vlist>span{display:block;height:0;position:relative}article#presentation > svg > foreignObject > section .katex .vlist>span>span{display:inline-block}article#presentation > svg > foreignObject > section .katex .vlist>span>.pstrut{overflow:hidden;width:0}article#presentation > svg > foreignObject > section .katex .vlist-t2{margin-right:-2px}article#presentation > svg > foreignObject > section .katex .vlist-s{display:table-cell;vertical-align:bottom;font-size:1px;width:2px;min-width:2px}article#presentation > svg > foreignObject > section .katex .msupsub{text-align:left}article#presentation > svg > foreignObject > section .katex .mfrac>span>span{text-align:center}article#presentation > svg > foreignObject > section .katex .mfrac .frac-line{display:inline-block;width:100%;border-bottom-style:solid}article#presentation > svg > foreignObject > section .katex .hdashline,article#presentation > svg > foreignObject > section .katex .hline,article#presentation > svg > foreignObject > section .katex .mfrac .frac-line,article#presentation > svg > foreignObject > section .katex .overline .overline-line,article#presentation > svg > foreignObject > section .katex .rule,article#presentation > svg > foreignObject > section .katex .underline .underline-line{min-height:1px}article#presentation > svg > foreignObject > section .katex .mspace{display:inline-block}article#presentation > svg > foreignObject > section .katex .clap,article#presentation > svg > foreignObject > section .katex .llap,article#presentation > svg > foreignObject > section .katex .rlap{width:0;position:relative}article#presentation > svg > foreignObject > section .katex .clap>.inner,article#presentation > svg > foreignObject > section .katex .llap>.inner,article#presentation > svg > foreignObject > section .katex .rlap>.inner{position:absolute}article#presentation > svg > foreignObject > section .katex .clap>.fix,article#presentation > svg > foreignObject > section .katex .llap>.fix,article#presentation > svg > foreignObject > section .katex .rlap>.fix{display:inline-block}article#presentation > svg > foreignObject > section .katex .llap>.inner{right:0}article#presentation > svg > foreignObject > section .katex .clap>.inner,article#presentation > svg > foreignObject > section .katex .rlap>.inner{left:0}article#presentation > svg > foreignObject > section .katex .clap>.inner>span{margin-left:-50%;margin-right:50%}article#presentation > svg > foreignObject > section .katex .rule{display:inline-block;border:0 solid;position:relative}article#presentation > svg > foreignObject > section .katex .hline,article#presentation > svg > foreignObject > section .katex .overline .overline-line,article#presentation > svg > foreignObject > section .katex .underline .underline-line{display:inline-block;width:100%;border-bottom-style:solid}article#presentation > svg > foreignObject > section .katex .hdashline{display:inline-block;width:100%;border-bottom-style:dashed}article#presentation > svg > foreignObject > section .katex .sqrt>.root{margin-left:.27777778em;margin-right:-.55555556em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size1.size1,article#presentation > svg > foreignObject > section .katex .sizing.reset-size1.size1{font-size:1em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size1.size2,article#presentation > svg > foreignObject > section .katex .sizing.reset-size1.size2{font-size:1.2em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size1.size3,article#presentation > svg > foreignObject > section .katex .sizing.reset-size1.size3{font-size:1.4em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size1.size4,article#presentation > svg > foreignObject > section .katex .sizing.reset-size1.size4{font-size:1.6em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size1.size5,article#presentation > svg > foreignObject > section .katex .sizing.reset-size1.size5{font-size:1.8em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size1.size6,article#presentation > svg > foreignObject > section .katex .sizing.reset-size1.size6{font-size:2em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size1.size7,article#presentation > svg > foreignObject > section .katex .sizing.reset-size1.size7{font-size:2.4em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size1.size8,article#presentation > svg > foreignObject > section .katex .sizing.reset-size1.size8{font-size:2.88em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size1.size9,article#presentation > svg > foreignObject > section .katex .sizing.reset-size1.size9{font-size:3.456em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size1.size10,article#presentation > svg > foreignObject > section .katex .sizing.reset-size1.size10{font-size:4.148em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size1.size11,article#presentation > svg > foreignObject > section .katex .sizing.reset-size1.size11{font-size:4.976em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size2.size1,article#presentation > svg > foreignObject > section .katex .sizing.reset-size2.size1{font-size:.83333333em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size2.size2,article#presentation > svg > foreignObject > section .katex .sizing.reset-size2.size2{font-size:1em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size2.size3,article#presentation > svg > foreignObject > section .katex .sizing.reset-size2.size3{font-size:1.16666667em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size2.size4,article#presentation > svg > foreignObject > section .katex .sizing.reset-size2.size4{font-size:1.33333333em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size2.size5,article#presentation > svg > foreignObject > section .katex .sizing.reset-size2.size5{font-size:1.5em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size2.size6,article#presentation > svg > foreignObject > section .katex .sizing.reset-size2.size6{font-size:1.66666667em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size2.size7,article#presentation > svg > foreignObject > section .katex .sizing.reset-size2.size7{font-size:2em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size2.size8,article#presentation > svg > foreignObject > section .katex .sizing.reset-size2.size8{font-size:2.4em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size2.size9,article#presentation > svg > foreignObject > section .katex .sizing.reset-size2.size9{font-size:2.88em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size2.size10,article#presentation > svg > foreignObject > section .katex .sizing.reset-size2.size10{font-size:3.45666667em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size2.size11,article#presentation > svg > foreignObject > section .katex .sizing.reset-size2.size11{font-size:4.14666667em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size3.size1,article#presentation > svg > foreignObject > section .katex .sizing.reset-size3.size1{font-size:.71428571em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size3.size2,article#presentation > svg > foreignObject > section .katex .sizing.reset-size3.size2{font-size:.85714286em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size3.size3,article#presentation > svg > foreignObject > section .katex .sizing.reset-size3.size3{font-size:1em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size3.size4,article#presentation > svg > foreignObject > section .katex .sizing.reset-size3.size4{font-size:1.14285714em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size3.size5,article#presentation > svg > foreignObject > section .katex .sizing.reset-size3.size5{font-size:1.28571429em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size3.size6,article#presentation > svg > foreignObject > section .katex .sizing.reset-size3.size6{font-size:1.42857143em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size3.size7,article#presentation > svg > foreignObject > section .katex .sizing.reset-size3.size7{font-size:1.71428571em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size3.size8,article#presentation > svg > foreignObject > section .katex .sizing.reset-size3.size8{font-size:2.05714286em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size3.size9,article#presentation > svg > foreignObject > section .katex .sizing.reset-size3.size9{font-size:2.46857143em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size3.size10,article#presentation > svg > foreignObject > section .katex .sizing.reset-size3.size10{font-size:2.96285714em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size3.size11,article#presentation > svg > foreignObject > section .katex .sizing.reset-size3.size11{font-size:3.55428571em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size4.size1,article#presentation > svg > foreignObject > section .katex .sizing.reset-size4.size1{font-size:.625em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size4.size2,article#presentation > svg > foreignObject > section .katex .sizing.reset-size4.size2{font-size:.75em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size4.size3,article#presentation > svg > foreignObject > section .katex .sizing.reset-size4.size3{font-size:.875em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size4.size4,article#presentation > svg > foreignObject > section .katex .sizing.reset-size4.size4{font-size:1em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size4.size5,article#presentation > svg > foreignObject > section .katex .sizing.reset-size4.size5{font-size:1.125em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size4.size6,article#presentation > svg > foreignObject > section .katex .sizing.reset-size4.size6{font-size:1.25em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size4.size7,article#presentation > svg > foreignObject > section .katex .sizing.reset-size4.size7{font-size:1.5em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size4.size8,article#presentation > svg > foreignObject > section .katex .sizing.reset-size4.size8{font-size:1.8em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size4.size9,article#presentation > svg > foreignObject > section .katex .sizing.reset-size4.size9{font-size:2.16em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size4.size10,article#presentation > svg > foreignObject > section .katex .sizing.reset-size4.size10{font-size:2.5925em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size4.size11,article#presentation > svg > foreignObject > section .katex .sizing.reset-size4.size11{font-size:3.11em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size5.size1,article#presentation > svg > foreignObject > section .katex .sizing.reset-size5.size1{font-size:.55555556em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size5.size2,article#presentation > svg > foreignObject > section .katex .sizing.reset-size5.size2{font-size:.66666667em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size5.size3,article#presentation > svg > foreignObject > section .katex .sizing.reset-size5.size3{font-size:.77777778em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size5.size4,article#presentation > svg > foreignObject > section .katex .sizing.reset-size5.size4{font-size:.88888889em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size5.size5,article#presentation > svg > foreignObject > section .katex .sizing.reset-size5.size5{font-size:1em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size5.size6,article#presentation > svg > foreignObject > section .katex .sizing.reset-size5.size6{font-size:1.11111111em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size5.size7,article#presentation > svg > foreignObject > section .katex .sizing.reset-size5.size7{font-size:1.33333333em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size5.size8,article#presentation > svg > foreignObject > section .katex .sizing.reset-size5.size8{font-size:1.6em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size5.size9,article#presentation > svg > foreignObject > section .katex .sizing.reset-size5.size9{font-size:1.92em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size5.size10,article#presentation > svg > foreignObject > section .katex .sizing.reset-size5.size10{font-size:2.30444444em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size5.size11,article#presentation > svg > foreignObject > section .katex .sizing.reset-size5.size11{font-size:2.76444444em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size6.size1,article#presentation > svg > foreignObject > section .katex .sizing.reset-size6.size1{font-size:.5em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size6.size2,article#presentation > svg > foreignObject > section .katex .sizing.reset-size6.size2{font-size:.6em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size6.size3,article#presentation > svg > foreignObject > section .katex .sizing.reset-size6.size3{font-size:.7em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size6.size4,article#presentation > svg > foreignObject > section .katex .sizing.reset-size6.size4{font-size:.8em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size6.size5,article#presentation > svg > foreignObject > section .katex .sizing.reset-size6.size5{font-size:.9em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size6.size6,article#presentation > svg > foreignObject > section .katex .sizing.reset-size6.size6{font-size:1em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size6.size7,article#presentation > svg > foreignObject > section .katex .sizing.reset-size6.size7{font-size:1.2em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size6.size8,article#presentation > svg > foreignObject > section .katex .sizing.reset-size6.size8{font-size:1.44em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size6.size9,article#presentation > svg > foreignObject > section .katex .sizing.reset-size6.size9{font-size:1.728em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size6.size10,article#presentation > svg > foreignObject > section .katex .sizing.reset-size6.size10{font-size:2.074em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size6.size11,article#presentation > svg > foreignObject > section .katex .sizing.reset-size6.size11{font-size:2.488em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size7.size1,article#presentation > svg > foreignObject > section .katex .sizing.reset-size7.size1{font-size:.41666667em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size7.size2,article#presentation > svg > foreignObject > section .katex .sizing.reset-size7.size2{font-size:.5em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size7.size3,article#presentation > svg > foreignObject > section .katex .sizing.reset-size7.size3{font-size:.58333333em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size7.size4,article#presentation > svg > foreignObject > section .katex .sizing.reset-size7.size4{font-size:.66666667em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size7.size5,article#presentation > svg > foreignObject > section .katex .sizing.reset-size7.size5{font-size:.75em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size7.size6,article#presentation > svg > foreignObject > section .katex .sizing.reset-size7.size6{font-size:.83333333em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size7.size7,article#presentation > svg > foreignObject > section .katex .sizing.reset-size7.size7{font-size:1em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size7.size8,article#presentation > svg > foreignObject > section .katex .sizing.reset-size7.size8{font-size:1.2em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size7.size9,article#presentation > svg > foreignObject > section .katex .sizing.reset-size7.size9{font-size:1.44em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size7.size10,article#presentation > svg > foreignObject > section .katex .sizing.reset-size7.size10{font-size:1.72833333em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size7.size11,article#presentation > svg > foreignObject > section .katex .sizing.reset-size7.size11{font-size:2.07333333em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size8.size1,article#presentation > svg > foreignObject > section .katex .sizing.reset-size8.size1{font-size:.34722222em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size8.size2,article#presentation > svg > foreignObject > section .katex .sizing.reset-size8.size2{font-size:.41666667em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size8.size3,article#presentation > svg > foreignObject > section .katex .sizing.reset-size8.size3{font-size:.48611111em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size8.size4,article#presentation > svg > foreignObject > section .katex .sizing.reset-size8.size4{font-size:.55555556em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size8.size5,article#presentation > svg > foreignObject > section .katex .sizing.reset-size8.size5{font-size:.625em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size8.size6,article#presentation > svg > foreignObject > section .katex .sizing.reset-size8.size6{font-size:.69444444em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size8.size7,article#presentation > svg > foreignObject > section .katex .sizing.reset-size8.size7{font-size:.83333333em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size8.size8,article#presentation > svg > foreignObject > section .katex .sizing.reset-size8.size8{font-size:1em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size8.size9,article#presentation > svg > foreignObject > section .katex .sizing.reset-size8.size9{font-size:1.2em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size8.size10,article#presentation > svg > foreignObject > section .katex .sizing.reset-size8.size10{font-size:1.44027778em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size8.size11,article#presentation > svg > foreignObject > section .katex .sizing.reset-size8.size11{font-size:1.72777778em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size9.size1,article#presentation > svg > foreignObject > section .katex .sizing.reset-size9.size1{font-size:.28935185em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size9.size2,article#presentation > svg > foreignObject > section .katex .sizing.reset-size9.size2{font-size:.34722222em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size9.size3,article#presentation > svg > foreignObject > section .katex .sizing.reset-size9.size3{font-size:.40509259em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size9.size4,article#presentation > svg > foreignObject > section .katex .sizing.reset-size9.size4{font-size:.46296296em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size9.size5,article#presentation > svg > foreignObject > section .katex .sizing.reset-size9.size5{font-size:.52083333em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size9.size6,article#presentation > svg > foreignObject > section .katex .sizing.reset-size9.size6{font-size:.5787037em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size9.size7,article#presentation > svg > foreignObject > section .katex .sizing.reset-size9.size7{font-size:.69444444em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size9.size8,article#presentation > svg > foreignObject > section .katex .sizing.reset-size9.size8{font-size:.83333333em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size9.size9,article#presentation > svg > foreignObject > section .katex .sizing.reset-size9.size9{font-size:1em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size9.size10,article#presentation > svg > foreignObject > section .katex .sizing.reset-size9.size10{font-size:1.20023148em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size9.size11,article#presentation > svg > foreignObject > section .katex .sizing.reset-size9.size11{font-size:1.43981481em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size10.size1,article#presentation > svg > foreignObject > section .katex .sizing.reset-size10.size1{font-size:.24108004em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size10.size2,article#presentation > svg > foreignObject > section .katex .sizing.reset-size10.size2{font-size:.28929605em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size10.size3,article#presentation > svg > foreignObject > section .katex .sizing.reset-size10.size3{font-size:.33751205em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size10.size4,article#presentation > svg > foreignObject > section .katex .sizing.reset-size10.size4{font-size:.38572806em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size10.size5,article#presentation > svg > foreignObject > section .katex .sizing.reset-size10.size5{font-size:.43394407em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size10.size6,article#presentation > svg > foreignObject > section .katex .sizing.reset-size10.size6{font-size:.48216008em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size10.size7,article#presentation > svg > foreignObject > section .katex .sizing.reset-size10.size7{font-size:.57859209em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size10.size8,article#presentation > svg > foreignObject > section .katex .sizing.reset-size10.size8{font-size:.69431051em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size10.size9,article#presentation > svg > foreignObject > section .katex .sizing.reset-size10.size9{font-size:.83317261em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size10.size10,article#presentation > svg > foreignObject > section .katex .sizing.reset-size10.size10{font-size:1em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size10.size11,article#presentation > svg > foreignObject > section .katex .sizing.reset-size10.size11{font-size:1.19961427em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size11.size1,article#presentation > svg > foreignObject > section .katex .sizing.reset-size11.size1{font-size:.20096463em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size11.size2,article#presentation > svg > foreignObject > section .katex .sizing.reset-size11.size2{font-size:.24115756em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size11.size3,article#presentation > svg > foreignObject > section .katex .sizing.reset-size11.size3{font-size:.28135048em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size11.size4,article#presentation > svg > foreignObject > section .katex .sizing.reset-size11.size4{font-size:.32154341em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size11.size5,article#presentation > svg > foreignObject > section .katex .sizing.reset-size11.size5{font-size:.36173633em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size11.size6,article#presentation > svg > foreignObject > section .katex .sizing.reset-size11.size6{font-size:.40192926em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size11.size7,article#presentation > svg > foreignObject > section .katex .sizing.reset-size11.size7{font-size:.48231511em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size11.size8,article#presentation > svg > foreignObject > section .katex .sizing.reset-size11.size8{font-size:.57877814em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size11.size9,article#presentation > svg > foreignObject > section .katex .sizing.reset-size11.size9{font-size:.69453376em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size11.size10,article#presentation > svg > foreignObject > section .katex .sizing.reset-size11.size10{font-size:.83360129em}article#presentation > svg > foreignObject > section .katex .fontsize-ensurer.reset-size11.size11,article#presentation > svg > foreignObject > section .katex .sizing.reset-size11.size11{font-size:1em}article#presentation > svg > foreignObject > section .katex .delimsizing.size1{font-family:KaTeX_Size1}article#presentation > svg > foreignObject > section .katex .delimsizing.size2{font-family:KaTeX_Size2}article#presentation > svg > foreignObject > section .katex .delimsizing.size3{font-family:KaTeX_Size3}article#presentation > svg > foreignObject > section .katex .delimsizing.size4{font-family:KaTeX_Size4}article#presentation > svg > foreignObject > section .katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}article#presentation > svg > foreignObject > section .katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}article#presentation > svg > foreignObject > section .katex .nulldelimiter{display:inline-block;width:.12em}article#presentation > svg > foreignObject > section .katex .delimcenter,article#presentation > svg > foreignObject > section .katex .op-symbol{position:relative}article#presentation > svg > foreignObject > section .katex .op-symbol.small-op{font-family:KaTeX_Size1}article#presentation > svg > foreignObject > section .katex .op-symbol.large-op{font-family:KaTeX_Size2}article#presentation > svg > foreignObject > section .katex .accent>.vlist-t,article#presentation > svg > foreignObject > section .katex .op-limits>.vlist-t{text-align:center}article#presentation > svg > foreignObject > section .katex .accent .accent-body{position:relative}article#presentation > svg > foreignObject > section .katex .accent .accent-body:not(.accent-full){width:0}article#presentation > svg > foreignObject > section .katex .overlay{display:block}article#presentation > svg > foreignObject > section .katex .mtable .vertical-separator{display:inline-block;min-width:1px}article#presentation > svg > foreignObject > section .katex .mtable .arraycolsep{display:inline-block}article#presentation > svg > foreignObject > section .katex .mtable .col-align-c>.vlist-t{text-align:center}article#presentation > svg > foreignObject > section .katex .mtable .col-align-l>.vlist-t{text-align:left}article#presentation > svg > foreignObject > section .katex .mtable .col-align-r>.vlist-t{text-align:right}article#presentation > svg > foreignObject > section .katex .svg-align{text-align:left}article#presentation > svg > foreignObject > section .katex svg{display:block;position:absolute;width:100%;height:inherit;fill:currentColor;stroke:currentColor;fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1}article#presentation > svg > foreignObject > section .katex svg path{stroke:none}article#presentation > svg > foreignObject > section .katex img{border-style:none;min-width:0;min-height:0;max-width:none;max-height:none}article#presentation > svg > foreignObject > section .katex .stretchy{width:100%;display:block;position:relative;overflow:hidden}article#presentation > svg > foreignObject > section .katex .stretchy:after,article#presentation > svg > foreignObject > section .katex .stretchy:before{content:""}article#presentation > svg > foreignObject > section .katex .hide-tail{width:100%;position:relative;overflow:hidden}article#presentation > svg > foreignObject > section .katex .halfarrow-left{position:absolute;left:0;width:50.2%;overflow:hidden}article#presentation > svg > foreignObject > section .katex .halfarrow-right{position:absolute;right:0;width:50.2%;overflow:hidden}article#presentation > svg > foreignObject > section .katex .brace-left{position:absolute;left:0;width:25.1%;overflow:hidden}article#presentation > svg > foreignObject > section .katex .brace-center{position:absolute;left:25%;width:50%;overflow:hidden}article#presentation > svg > foreignObject > section .katex .brace-right{position:absolute;right:0;width:25.1%;overflow:hidden}article#presentation > svg > foreignObject > section .katex .x-arrow-pad{padding:0 .5em}article#presentation > svg > foreignObject > section .katex .mover,article#presentation > svg > foreignObject > section .katex .munder,article#presentation > svg > foreignObject > section .katex .x-arrow{text-align:center}article#presentation > svg > foreignObject > section .katex .boxpad{padding:0 .3em}article#presentation > svg > foreignObject > section .katex .fbox,article#presentation > svg > foreignObject > section .katex .fcolorbox{box-sizing:border-box;border:.04em solid}article#presentation > svg > foreignObject > section .katex .cancel-pad{padding:0 .2em}article#presentation > svg > foreignObject > section .katex .cancel-lap{margin-left:-.2em;margin-right:-.2em}article#presentation > svg > foreignObject > section .katex .sout{border-bottom-style:solid;border-bottom-width:.08em}article#presentation > svg > foreignObject > section .katex-display{display:block;margin:1em 0;text-align:center}article#presentation > svg > foreignObject > section .katex-display>.katex{display:block;text-align:center;white-space:nowrap}article#presentation > svg > foreignObject > section .katex-display>.katex>.katex-html{display:block;position:relative}article#presentation > svg > foreignObject > section .katex-display>.katex>.katex-html>.tag{position:absolute;right:0}article#presentation > svg > foreignObject > section .katex-display.leqno>.katex>.katex-html>.tag{left:0;right:auto}article#presentation > svg > foreignObject > section .katex-display.fleqn>.katex{text-align:left}article#presentation > svg > foreignObject > section .katex-display{margin:0}article#presentation > svg > foreignObject > section svg[data-marp-fitting-math]{--preserve-aspect-ratio:xMidYMid meet}article#presentation > svg > foreignObject > section svg[data-marp-fitting-math] [data-marp-fitting-svg-content]{margin:0 auto}article#presentation > svg > foreignObject > section svg[data-marp-fitting=svg]{display:block;height:auto;width:100%}@supports (-ms-ime-align:auto){article#presentation > svg > foreignObject > section svg[data-marp-fitting=svg]{position:static}}article#presentation > svg > foreignObject > section svg[data-marp-fitting=svg].__reflow__{content:""}@supports (-ms-ime-align:auto){article#presentation > svg > foreignObject > section svg[data-marp-fitting=svg].__reflow__{position:relative}}article#presentation > svg > foreignObject > section [data-marp-fitting-svg-content]{display:table;white-space:nowrap}article#presentation > svg > foreignObject > section [data-marp-fitting-svg-content-wrap]{white-space:pre}article#presentation > svg > foreignObject > section img[data-marp-twemoji]{background:transparent;height:1em;margin:0 .05em 0 .1em;vertical-align:-.1em;width:1em}
+
+/* @theme fredericks */
+
+article#presentation > svg > foreignObject > section * {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.1em;
+}
+
+article#presentation > svg > foreignObject > section {
+  border-bottom: 8px solid #63d297;
+  padding: 40px 0px 0px 40px;
+  margin: 0px;
+}
+
+article#presentation > svg > foreignObject > section h1 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  background: #eee;
+  padding: 10px;
+}
+article#presentation > svg > foreignObject > section h1.title {
+  background: #000;
+  padding: 0px; 
+  margin: 0px;
+}
+
+article#presentation > svg > foreignObject > section table, article#presentation > svg > foreignObject > section tr, article#presentation > svg > foreignObject > section tbody, article#presentation > svg > foreignObject > section thead, article#presentation > svg > foreignObject > section th, article#presentation > svg > foreignObject > section td, article#presentation > svg > foreignObject > section td, article#presentation > svg > foreignObject > section table tbody tr td {
+  background: #fff;
+}
+
+article#presentation > svg > foreignObject > section hr {
+  background: #333;
+  border: 1px solid #333;
+}
+/*
+section [data-marp-fitting-svg-content] {
+  width: 90%;
+}
+*/
+
+article#presentation > svg > foreignObject > section h2 {
+  margin: 5px 0px;
+}
+
+article#presentation > svg > foreignObject > section p {
+  margin: 0px 0px 40px 0px;
+}
+
+
+article#presentation > svg > foreignObject > section ul li p,
+article#presentation > svg > foreignObject > section div,
+article#presentation > svg > foreignObject > section p,
+article#presentation > svg > foreignObject > section p {
+  font-size: 1.1em;
+}
+
+article#presentation > svg > foreignObject > section ul li ul li p {
+  font-size: 0.9em;
+}
+
+article#presentation > svg > foreignObject > section ul li ul li ul li {
+  font-size: 0.7em;
+}
+
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background="background"] {
+  display: block !important;
+  padding: 0 !important;
+}
+
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background="background"]::before,
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background="background"]::after,
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background="content"]::before,
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background="content"]::after {
+  display: none !important;
+}
+
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background="background"] > div[data-marpit-advanced-background-container] {
+  all: initial;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background="background"] > div[data-marpit-advanced-background-container][data-marpit-advanced-background-direction="vertical"] {
+  flex-direction: column;
+}
+
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background="background"][data-marpit-advanced-background-split] > div[data-marpit-advanced-background-container] {
+  width: var(--marpit-advanced-background-split, 50%);
+}
+
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background="background"][data-marpit-advanced-background-split="right"] > div[data-marpit-advanced-background-container] {
+  margin-left: calc(100% - var(--marpit-advanced-background-split, 50%));
+}
+
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background="background"] > div[data-marpit-advanced-background-container] > figure {
+  all: initial;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex: auto;
+  margin: 0;
+}
+
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background="content"],
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background="pseudo"] {
+  background: transparent !important;
+}
+
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background="pseudo"],
+article#presentation > svg[data-marpit-svg] > foreignObject[data-marpit-advanced-background="pseudo"] {
+  pointer-events: none !important;
+}
+
+article#presentation > svg > foreignObject > section[data-marpit-advanced-background-split] {
+  width: 100%;
+  height: 100%;
+}</style></head><body><div class="bespoke-marp-osc"><button data-bespoke-marp-osc="prev" tabindex="-1" title="Previous slide">Previous slide</button><span data-bespoke-marp-osc="page"></span><button data-bespoke-marp-osc="next" tabindex="-1" title="Next slide">Next slide</button><button data-bespoke-marp-osc="fullscreen" tabindex="-1" title="Toggle fullscreen (f)">Toggle fullscreen</button></div><article id="presentation"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="1" data-paginate="true" data-background-color="black" data-color="white" data-theme="fredericks" data-marpit-pagination="1" data-marpit-pagination-total="56" style="--paginate:true;--background-color:black;--color:white;--theme:fredericks;color:white;background-color:black;background-image:none;"><h1 class='title'>CSI4900/5900</h1>
+<h2>Software Engineering for Cyber-Physical Systems</h2>
+<h4>Erik Fredericks (<a href="mailto:fredericks@oakland.edu">fredericks@oakland.edu</a>)</h4>
+<h4>Fall 2019</h4>
+<hr size="5" />
+<h2>Course Introduction</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="2" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Overview</h1>
+<ul>
+<li>Welcome</li>
+<li>Syllabus</li>
+<li>What are Cyber-Physical Systems?</li>
+<li>What do Raspberry Pis have to do with this?</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="3" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/cps-overview.png&quot;);background-size:500px auto;"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="3" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="3" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;" data-marpit-advanced-background="content">
+<h1>Welcome!</h1>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:#333;" data-marpit-advanced-background="pseudo" data-marpit-pagination="3" data-marpit-pagination-total="56"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="4" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:30%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="left"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/stop-sign.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="70%" height="720" x="30%"><section id="4" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="4" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:30%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="left">
+<h1>Syllabus</h1>
+<ul>
+<li>As always, the syllabus is worth reading</li>
+<li>Important topics like:
+<ul>
+<li>When is my final exam?</li>
+<li>What is the grading breakdown?</li>
+<li>What time does this class meet?</li>
+<li>Where can I find the nifty textbook?
+<ul>
+<li>Joke's on you there is no textbook</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:#333;" data-marpit-advanced-background="pseudo" data-marpit-pagination="4" data-marpit-pagination-total="56"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="5" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>What we <em><strong>will</strong></em> cover</h1>
+<ul>
+<li>Core software engineering concepts <strong>as applied to CPSs</strong>
+<ul>
+<li>Validation, verification, etc.</li>
+</ul>
+</li>
+<li>Practical software engineering on <strong>real-world devices</strong>
+<ul>
+<li>Validation, verification, etc.</li>
+</ul>
+</li>
+<li>Learning how to read <strong>research papers</strong>
+<ul>
+<li>AND
+<ul>
+<li>And</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Draw conclusions from them <em>quickly and efficiently</em></li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="6" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:30%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/no-wiring.png&quot;);"></figure></div></section></foreignObject><foreignObject width="70%" height="720"><section id="6" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="6" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:30%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>What we <em><strong>will not</strong></em> cover</h1>
+<ul>
+<li>Anything ECE-related
+<ul>
+<li>We're going to assume these Pis are networked and <em>untouchable</em> microcomputers
+<ul>
+<li>They stay in their case, end of story</li>
+</ul>
+</li>
+<li>We're not going to be wiring them up to all sorts of sensors, unless prior permission is given
+<ul>
+<li>(You'll note we don't necessarily have the facilities for that sort of thing in this room)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:#333;" data-marpit-advanced-background="pseudo" data-marpit-pagination="6" data-marpit-pagination-total="56"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="7" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:60%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/what-do-you-want.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="40%" height="720"><section id="7" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="7" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:60%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>What do you want to cover?</h1>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:#333;" data-marpit-advanced-background="pseudo" data-marpit-pagination="7" data-marpit-pagination-total="56"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="8" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Knowledge you are assumed to have</h1>
+<ul>
+<li>Able to use a Linux operating system
+<ul>
+<li>Navigate command line</li>
+<li>Move files</li>
+<li>Set permissions</li>
+<li>etc.</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="9" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:20%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/no-java.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="80%" height="720"><section id="9" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="9" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:20%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>Knowledge you are assumed to have</h1>
+<ul>
+<li>Able to program in <strong>Python</strong> (preferred) or <strong>C/C++</strong> (acceptable) or <strong>Java</strong> (non-preferred)
+<ul>
+<li>When I say non-preferred, it means all examples will be shown in <strong>Python</strong></li>
+<li>It will be up to you to translate to Java if you insist on using Java
+<ul>
+<li>The answer is <strong>no</strong>, I will not provide Java examples, let's be clear on that up front</li>
+<li>C/C++ is possible, Java is a definite no</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:#333;" data-marpit-advanced-background="pseudo" data-marpit-pagination="9" data-marpit-pagination-total="56"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="10" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>How class will generally work</h1>
+<ul>
+<li>Monday: <strong>Lecture day</strong>
+<ul>
+<li>Introduce concepts for week</li>
+<li>Paper reminder</li>
+</ul>
+</li>
+<li>Wednesday: <strong>Work day</strong>
+<ul>
+<li>Student paper presentation / discussion</li>
+<li>Play time with the Raspberry Pis</li>
+</ul>
+</li>
+<li>Depending on the week (or how class is going)
+<ul>
+<li>May split 1 hr lecture, 1 hr work</li>
+</ul>
+</li>
+</ul>
+<p>However….</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="11" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Student Presentations</h1>
+<p>We'll be taking turns presenting research papers that are relevant to the topic each week</p>
+<ul>
+<li>Consider this to be analogous to a seminar class</li>
+<li>You'll be provided with a paper template to get your thoughts down on paper</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="12" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Student Presentations</h1>
+<p>One student <strong>each week</strong> will be in charge of presenting their writeup to the class</p>
+<ul>
+<li>Slides not required, simply lead the discussion</li>
+<li>Everybody will be required to have read the paper prior to coming to class</li>
+<li>This talk will be brief, we just want the highlights and a short discussion</li>
+</ul>
+<p>Does everybody need to fill out the template?</p>
+<ul>
+<li><strong>No, just the student leading the discussion</strong></li>
+<li>(but if you don't participate I'll know)</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="13" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Topic Presentation</h1>
+<p>Additionally, each student will be in charge of presenting 1 module to the class</p>
+<ul>
+<li>~45-min - 1 hr presentation</li>
+</ul>
+<p>I will provide the list of available topics in Moodle for you to choose from</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="14" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Topic Presentation</h1>
+<p>For instance, if you are interested in <em>Probabilistic Model Checking</em> you would present information gained from several papers</p>
+<ul>
+<li>We'd hear about model checking in general, how probability theory impacts that, what Kripke structures are, etc.
+<ul>
+<li>Oh neat, probabilistic model checking can be used at run time as well, we'd hear about that too</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="15" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:30%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/queen-elizabeth.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="70%" height="720"><section id="15" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="15" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:30%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>Lab Time</h1>
+<p>In addition to how fun this class will be, this will be an additional layer of fun</p>
+<p>Generally, lab time will be used for working on basic concepts that will help your term project along</p>
+<p>We will not necessarily have a lab report, but you will need to demonstrate that you are making forward progress each week</p>
+<p>Grading requirements will be provided with each lab manual</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:#333;" data-marpit-advanced-background="pseudo" data-marpit-pagination="15" data-marpit-pagination-total="56"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="16" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Term Project</h1>
+<ul>
+<li>Oh yes, there will be a term project</li>
+<li>You have the option of working on a team or by yourself
+<ul>
+<li>If on a <strong>team</strong>, then your project should have a level of difficulty/cooperation <strong>between devices</strong> that you could not accomplish alone</li>
+<li>Meaning, if you have 2 or more people, there should be enough work done to merit a team</li>
+</ul>
+</li>
+<li>You will need to write a proposal early on to convince me of the project's merit
+<ul>
+<li>With or without a team</li>
+</ul>
+</li>
+</ul>
+<img src="img/project.jpg" style="position:absolute;top:20px;right:20px;width:400px;" />
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="17" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Term Project</h1>
+<ul>
+<li>You will implement a <strong>CPS of your choice</strong> and you will <strong>apply some form of software engineering to your CPS</strong>
+<ul>
+<li>You have the option for both points</li>
+</ul>
+</li>
+<li>An example:
+<ul>
+<li>I am implementing an Internet of Things (IoT) environment</li>
+<li>I am performing software validation on my setup based on a test specification, and showing all the PASS/FAIL results</li>
+</ul>
+</li>
+<li>Note that an IoT environment <strong>requires</strong> more than one device!
+<ul>
+<li>Assuming we don't hit the class limit, we should have extras</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="18" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Term Project</h1>
+<p>I expect that you'll be working on your term project throughout the semester, not just the last two weeks of class</p>
+<p>We will have milestones that you'll have to meet</p>
+<ul>
+<li>Documentation, demonstrations, etc.</li>
+</ul>
+<p>These will factor into your final term project grade</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="19" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Exams</h1>
+<p>Your midterm exam will take place at: <code>&lt;REF NOT FOUND&gt;</code></p>
+<p>Your final exam will take place at: <code>&lt;REF NOT FOUND&gt;</code></p>
+<p>No exams in this class, it is a seminar / project class</p>
+<ul>
+<li>Your project presentation will take the place of your final exam</li>
+<li>Your midterm exam will be one of the major term project milestones</li>
+</ul>
+<p>As a result though, your discussion game had better be on point, as that will be graded with much more focus than normal!</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="20" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/tina-bb-questions.png&quot;);"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="20" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="20" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>Questions so far?</h1>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:#333;" data-marpit-advanced-background="pseudo" data-marpit-pagination="20" data-marpit-pagination-total="56"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="21" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/hi-everybody.png&quot;);"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="21" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="21" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>Introduce yourselves!</h1>
+<p>This class tends to be very interactive, so let's do the thing of introducing each other to each other</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:#333;" data-marpit-advanced-background="pseudo" data-marpit-pagination="21" data-marpit-pagination-total="56"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="22" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="22" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Intro to Cyber-Physical Systems (CPS)</h1>
+<p><strong>What is a CPS?</strong></p>
+<ul>
+<li>&quot;Engineered systems that are built from, and depend upon, the seamless integration of computational algorithms and physical components&quot;
+<ul>
+<li>National Science Foundation</li>
+</ul>
+</li>
+<li>Essentially, the cyber (programming) and physical (hardware) working together
+<ul>
+<li>Software logic</li>
+<li>Execution timing</li>
+<li>Physical forces</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="23" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="23" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Computing Technologies</h1>
+<ul>
+<li>Computers
+<ul>
+<li>Devices that run software applications
+<ul>
+<li>E.g., user activities, processing, etc.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Controllers (traditional)
+<ul>
+<li>Devices that interact with physical world
+<ul>
+<li>E.g., traditional thermostats</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Embedded systems
+<ul>
+<li>Specialized system that integrates microcontroller and software
+<ul>
+<li>E.g., smart watch, 'smart' thermostat</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="24" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="24" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Intro to CPS</h1>
+<p>Say that you have designed an embedded system, you program it, etc.</p>
+<p>You've probably (assuming this is a real-world application) tested it, run it through your QA process, and validated it for use</p>
+<p>Is it a CPS?</p>
+<ul>
+<li>Kind of!</li>
+<li>CPSs are highly-complex, may use multiple actors, experience diverse environments, etc.</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="25" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/cps-flow.png&quot;);background-size:1000px auto;"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="25" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="25" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;" data-marpit-advanced-background="content">
+<h1>CPS</h1>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:#333;" data-marpit-advanced-background="pseudo" data-marpit-pagination="25" data-marpit-pagination-total="56"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="26" data-marpit-fragments="6" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="26" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Think of it this way...</h1>
+<ul>
+<li data-marpit-fragment="1">You're designing a system that uses a particular set of hardware
+<ul>
+<li data-marpit-fragment="2">The hardware itself has been encased in a plastic box that doesn't dissipate heat very well</li>
+<li data-marpit-fragment="3">As a result, the processor slows down to avoid heat damage</li>
+<li data-marpit-fragment="4">And then, your real-time scheduling algorithm implemented on your device becomes invalid as it assumes the processor speed was X%, when in reality it is now Y%</li>
+</ul>
+</li>
+<li data-marpit-fragment="5">An environmental concern has invalidated our basic model</li>
+<li data-marpit-fragment="6">A CPS would consider this!</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="27" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="27" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>CPS Characteristics</h1>
+<p>&quot;Convergence of communication, computation, and control&quot;</p>
+<p>A CPS:</p>
+<ul>
+<li>&quot;Physical / engineered systems that are monitored/coordinated/controlled/integrated by a computing/communication core&quot;</li>
+<li>&quot;Integrates computing, communication, and storage with monitoring and/or control of entities in real world&quot;</li>
+</ul>
+<p><a href="http://www.seas.upenn.edu/~lee/09cis480/lec-CPS.pdf">http://www.seas.upenn.edu/~lee/09cis480/lec-CPS.pdf</a></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="28" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="28" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>CPS Characteristics</h1>
+<p>Cyber-physical coupling in <em>everything</em></p>
+<ul>
+<li>Every physical device has some cyber in it (or, why a fridge needs to tweet?)</li>
+<li>Networking at scale</li>
+</ul>
+<p>Novel interactions in communication/computing/control</p>
+<ul>
+<li>High degree of automation</li>
+<li>Large-scale control loops</li>
+<li>Many users within that loop -- mostly not technical either</li>
+</ul>
+<p><em><strong>UBIQUITY</strong></em></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="29" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="29" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Example CPS Applications</h1>
+<p>Medical devices</p>
+<p>Autonomous vehicles</p>
+<p>Multi-agent systems (EFPL)</p>
+<p>Internet of Things (IoT) environments</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="30" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:30%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="left"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/epfl.jpg&quot;);"></figure></div></section></foreignObject><foreignObject width="70%" height="720" x="30%"><section id="30" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="30" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:30%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="left">
+<h1>EPFL (Switzerland)</h1>
+<p><a href="https://www.youtube.com/watch?v=QUHn0r_j5cE">https://www.youtube.com/watch?v=QUHn0r_j5cE</a></p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:#333;" data-marpit-advanced-background="pseudo" data-marpit-pagination="30" data-marpit-pagination-total="56"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="31" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="31" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Caveats...</h1>
+<p>CPSs can be <strong>horrendously complex</strong> and <strong>highly safety-critical</strong></p>
+<p><img src="img/cps-pitfalls.png" alt="width:1000px" style="width:1000px;" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-background-color="#fff" data-color="white" data-theme="fredericks" data-marpit-pagination="32" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:white;--theme:fredericks;color:white;background-color:#fff;background-image:none;" data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/ariane-5.gif&quot;);"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="32" data-paginate="true" data-background-color="#fff" data-color="white" data-theme="fredericks" data-marpit-pagination="32" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:white;--theme:fredericks;color:white;background-color:#fff;background-image:none;" data-marpit-advanced-background="content">
+<h1>Case Study : Ariane 5</h1>
+<ul>
+<li>Ariane 5 rocket -- created by European Space Agency</li>
+<li>Required <strong>10 years</strong> and <strong>$7 billion</strong> to build</li>
+<li>In under a minute after launch, the rocket exploded
+<ul>
+<li>As a result of…
+<ul>
+<li>Trying to put a 64-bit number into a 16-bit variable</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><em>A bug and a crash, J. Gleick, New York Times, Dec 1996</em></p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:white;" data-marpit-advanced-background="pseudo" data-marpit-pagination="32" data-marpit-pagination-total="56"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="33" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="33" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Case Study : Toyota Prius Braking</h1>
+<p>Delay in brake software caused vehicles to brake slower than expected</p>
+<p>If traveling 60mph, the brakes didn't trigger until ~90ft beyond initial brake press</p>
+<p>Disconnect in the anti-lock brake system (ABS) -- &lt; 1 second lag</p>
+<p><em>CNN Feb 4, 2010</em></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="34" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="34" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Case Study : Inadvertent Radiation Overdose</h1>
+<ul>
+<li>Let's talk about the <strong>Therac-25</strong>
+<ul>
+<li>Radiation therapy machine (chemotherapy)</li>
+<li>Iteration over the well-used Therac-6
+<ul>
+<li>Now completely software-controlled
+<ul>
+<li>... Including safety mechanisms</li>
+<li>Hey, it's probably cheaper to have everything be software-controlled, right?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Machine was extensively tested and verified over several years
+<ul>
+<li>A single programmer wrote all the code</li>
+<li>Unit testing and general SW testing was minimally done</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><em>Leveson 1993</em></p>
+<p><a href="http://www.cs.umd.edu/class/spring2003/cmsc838p/Misc/therac.pdf">http://www.cs.umd.edu/class/spring2003/cmsc838p/Misc/therac.pdf</a></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="35" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="35" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Therac-25</h1>
+<p>11 units were installed in the US and Canada</p>
+<ul>
+<li><strong>Six</strong> massive overdoses of radiation were reported</li>
+</ul>
+<p>Why?</p>
+<ul>
+<li>Program faults from the Therac-20 software codebase that were not previously detected
+<ul>
+<li>Well, why weren't they detected?
+<ul>
+<li>Because the <strong>hardware interlocks</strong> prevented the machine from ever entering a state</li>
+<li>Now that it was completely SW-controlled, well, no safety mechanism existed to prevent overdose</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="36" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="36" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Therac-25</h1>
+<p>Effectively this problem results from <strong>race conditions</strong> and <strong>concurrency errors</strong></p>
+<p>But, the human element is also to blame</p>
+<ul>
+<li>Medical staff initially did not believe that their machine was causing the problems</li>
+<li>Improper training led staff/nurses to use shortcuts or rapid key entries that caused the machine to go into the wrong power mode</li>
+<li>From Wiki (<a href="https://en.wikipedia.org/wiki/Therac-25#Additional_reading">https://en.wikipedia.org/wiki/Therac-25#Additional_reading</a>):</li>
+</ul>
+<p><code>The failure only occurred when a particular nonstandard sequence of keystrokes was entered on the VT-100 terminal which controlled the PDP-11 computer: an &amp;quot;X&amp;quot; to (erroneously) select 25 MeV photon mode followed by &amp;quot;cursor up&amp;quot;, &amp;quot;E&amp;quot; to (correctly) select 25 MeV Electron mode, then &amp;quot;Enter&amp;quot;, all within eight seconds. This sequence of keystrokes was improbable, and so the problem did not occur often and went unnoticed for a long time.</code></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="37" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="37" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>What does this tell us?</h1>
+<p><strong>Not</strong> that the engineers were incompetent.  A <strong>lot</strong> of effort went into designing and testing these systems.</p>
+<p>It tells us that testing is <strong>never</strong> complete and <strong>it is impossible to consider every single conceivable issue</strong></p>
+<p>Could a Lint test have solved the Ariane-5 explosion?  Possibly</p>
+<p>Could extensive human testing have solved the &lt;X&gt; catastrophe?  Maybe, maybe not.</p>
+<p><strong>Therefore, it is important to verify and test as much as possible prior to release!</strong></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="38" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="38" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>So software engineering...</h1>
+<p>Historically, probably some of the driest classes you will get (unless if you have one of our nifty professors, naturally)</p>
+<p>But that's all stuff that you do in the working world, right?</p>
+<p>Specifications, testing, verification.  That's the bland side of programming.</p>
+<p>Where's the excitement?  Where's the sex appeal?</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="39" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/ariane-5.gif&quot;);"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="39" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="39" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>Well...</h1>
+<p>This is also why I feel that programmers should have the same requirement as Mechanical Engineers to be tested for a Professional Engineer license.</p>
+<p><strong>People's lives can and will be at stake as a result of your programming.</strong></p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:#333;" data-marpit-advanced-background="pseudo" data-marpit-pagination="39" data-marpit-pagination-total="56"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="40" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;img/therac-note.png&quot;);background-size:700px auto;"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="40" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="40" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;--marpit-advanced-background-split:50%;" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1>Software Engineer's Responsibilities</h1>
+<p>Assume you programmed the Therac-25</p>
+<p>You are <strong>directly (or indirectly) responsible</strong> for causing severe radiation burns, at least one of which resulted in a breast amputation</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section style="color:#333;" data-marpit-advanced-background="pseudo" data-marpit-pagination="40" data-marpit-pagination-total="56"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="41" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="41" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Software Engineer's Responsibilities</h1>
+<p>Now that (I assume) you're scared straight</p>
+<p>Be responsible when you program.  It's not a game.  People's lives will be affected by your actions.</p>
+<p><code>/end soapboxing</code></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="42" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="42" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>So now that we're all mortified...</h1>
+<ul>
+<li>
+<p>In this class, we will consider software engineering concepts in terms of real-world CPSs</p>
+</li>
+<li>
+<p>The SE techniques we apply <strong>will directly affect</strong> operation of the CPS</p>
+</li>
+<li>
+<p>Examples:</p>
+<ul>
+<li>Run-time requirements monitoring that <strong>directly feeds back into the CPS controller</strong></li>
+<li>Software verification that enables us to <strong>derive run-time system states</strong></li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="43" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="43" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>So why are we in this lab?</h1>
+<p>Well I'm glad you asked...</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="44" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="44" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Raspberry Pi</h1>
+<ul>
+<li>Low-cost microcomputer:  ~$35 + parts</li>
+<li>Runs on multiple OSs
+<ul>
+<li>We'll be using Raspbian Linux</li>
+</ul>
+</li>
+<li>Uses microSD card for OS</li>
+<li>Wonderful capabilities
+<ul>
+<li>WiFi</li>
+<li>Bluetooth</li>
+<li>HDMI</li>
+<li>USB</li>
+<li>etc.</li>
+</ul>
+</li>
+<li><a href="http://www.raspberrypi.org/">http://www.raspberrypi.org/</a></li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="45" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="45" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Specifications</h1>
+<ul>
+<li>SoC: Broadcom BCM2837 (32KB L1 cache, 512KB L2 cache)</li>
+<li>CPU: 4x ARM Cortex-A53 @ 1.2GHz</li>
+<li>GPU: Broadcom VideoCore IV</li>
+<li>RAM: 1GB LPDDR2 (900MHz)</li>
+<li>Networking: 10/100 Ethernet, 2.4GHz 802.11n wireless</li>
+<li>Bluetooth: 4.1 classic, low energy</li>
+<li>Storage: microSD</li>
+<li>GPIO: 40-pin header</li>
+<li>Ports: HDMI, 3.5mm A/V, 4x USB2.0, Ethernet, Camera Serial Interface (CSI),</li>
+<li>Display Serial Interface (DSI)</li>
+<li><a href="https://www.raspberrypi.org/magpi/raspberry-pi-3-specs-benchmarks/">https://www.raspberrypi.org/magpi/raspberry-pi-3-specs-benchmarks/</a></li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="46" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="46" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Caveats</h1>
+<p>Due to lab/school restrictions, the Raspberry Pis <em>cannot leave this lab</em></p>
+<p>...unless you sign this handy waiver</p>
+<p>The Pis will be available via SSH and distributed to you at the start of class, but will be otherwise <strong>locked away</strong>.</p>
+<p>This is because they are:</p>
+<ul>
+<li>Fragile</li>
+<li>Tiny</li>
+<li>Prone to walking away</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="47" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="47" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>However</h1>
+<p>You can emulate the Raspberry Pi environment!</p>
+<ul>
+<li>VirtualBox + Pi ISO</li>
+</ul>
+<p>Given that we're not really working with the GPIO pins anyway</p>
+<p>This will enable you to work outside of the lab</p>
+<ul>
+<li><em>May have future lab going over this, if time</em></li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="48" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="48" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Programming Environments</h1>
+<p>Python installed <strong>by default</strong></p>
+<p>But, anything that can run on an ARMv6 chip can be installed</p>
+<ul>
+<li>Java is possible</li>
+</ul>
+<p>If installing Raspbian (Linux-based distro for Pi)</p>
+<ul>
+<li>Minecraft</li>
+<li>SCRATCH game maker</li>
+<li>Other fun stuff</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="49" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="49" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Pi Demo</h1>
+<ul>
+<li>Logging in</li>
+<li>Showing the kernel version</li>
+<li>Date</li>
+<li>CPU temperature</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="50" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="50" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Pi Demo - LOGGING IN</h1>
+<h2>FROM YOUR MACHINE</h2>
+<p><code>$ ssh pi@192.168.1.X</code></p>
+<p>Default password is <code>raspberry</code></p>
+<p>Change it <em><strong>immediately</strong></em> to something else</p>
+<p><code>$ passwd</code></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="51" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="51" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Pi Demo - KERNEL VERSION / DATE</h1>
+<p>Kernel version: <code>$ uname -a</code></p>
+<p>Date: <code>$ date</code></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="52" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="52" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Pi Demo - OTHERS</h1>
+<p>CPU temperature: <code>$ /opt/vc/bin/vcgencmd measure_temp</code></p>
+<p>Configuration menu: <code>$ sudo raspi_config</code></p>
+<p>Shutdown / reboot:  <code>$ sudo shutdown -h now   /   $ sudo reboot</code></p>
+<p>More for reference</p>
+<ul>
+<li><a href="http://www.circuitbasics.com/useful-raspberry-pi-commands/">http://www.circuitbasics.com/useful-raspberry-pi-commands/</a></li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="53" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="53" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Connecting to the Lab Pis</h1>
+<p>Each of you will be assigned an <strong>IP ADDRESS</strong> that resolves to your particular Pi</p>
+<ul>
+<li>This address will be accessible <strong>ONLY IN THIS LAB</strong>
+<ul>
+<li>(Believe me, I've tried to make this to be not the case)</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="54" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="54" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Connecting to the Lab Pis</h1>
+<p>To connect to your Pi, the syntax is:</p>
+<p><code>$ ssh pi@&lt;IP ADDRESS&gt;</code></p>
+<p>Or</p>
+<p>Just plug into a monitor!</p>
+<ul>
+<li>You'll need a keyboard and mouse as well</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="55" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="55" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Groupwork -- Design a Cruise Control System</h1>
+<table>
+<tr>
+  <td style="background:white; border: 0px">
+<p>I want you to design a simple cruise control system using block diagrams</p>
+<ul>
+<li>
+<p>Think about a car</p>
+<ul>
+<li>What systems are required to have cruise control?  What kinds of sensors?  What kinds of data will <em><strong>flow</strong></em> between those sensors?</li>
+</ul>
+</td>
+<td style="background:white; border: 0px">
+</li>
+</ul>
+<p><img src="img/block-diagram.jpg" alt="width:600px" style="width:600px;" /></p>
+  </td>
+</tr>
+</table>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="56" data-paginate="true" data-background-color="#fff" data-color="#333" data-theme="fredericks" data-marpit-pagination="56" data-marpit-pagination-total="56" style="--paginate:true;--background-color:#fff;--color:#333;--theme:fredericks;color:#333;background-color:#fff;background-image:none;">
+<h1>Additional References</h1>
+<ul>
+<li><a href="https://www.slideshare.net/ltg_oxford/raspberry-pie-an-introduction">https://www.slideshare.net/ltg_oxford/raspberry-pie-an-introduction</a></li>
+<li><a href="http://www.seas.upenn.edu/~lee/09cis480/lec-CPS.pdf">http://www.seas.upenn.edu/~lee/09cis480/lec-CPS.pdf</a></li>
+</ul>
+</section>
+</foreignObject></svg></article><script>!function(){"use strict";const t=()=>"Apple Computer, Inc."===navigator.vendor?[e]:[];function e(t){Array.from(document.getElementsByTagName("svg"),e=>{if(e.hasAttribute("data-marpit-svg")){const{clientHeight:r,clientWidth:a}=e;e.style.transform||(e.style.transform="translateZ(0)");const i=t||e.currentScale||1,n=e.viewBox.baseVal.width/i,s=e.viewBox.baseVal.height/i,o=Math.min(r/s,a/n);Array.from(e.querySelectorAll(":scope > foreignObject"),t=>{const e=t.x.baseVal.value,i=t.y.baseVal.value;Array.from(t.querySelectorAll(":scope > section"),t=>{t.style.transformOrigin||(t.style.transformOrigin="0 0");const l=(a-o*n)/2-e,c=(r-o*s)/2-i;t.style.transform=`translate3d(${l}px,${c}px,0) scale(${o}) translate(${e}px,${i}px)`})})}})}const r="data-marp-fitting",a="data-marp-fitting-code",i="data-marp-fitting-math",n=(t,e,r)=>{if(t.getAttribute(e)!==r)return t.setAttribute(e,r),!0};!function(e=!0){const s=()=>{for(const e of t())e();Array.from(document.querySelectorAll(`svg[${r}="svg"]`),t=>{const e=t.firstChild,r=e.firstChild,{scrollWidth:s,scrollHeight:o}=r;let l,c=1;if(t.hasAttribute(a)&&(l=t.parentElement.parentElement),t.hasAttribute(i)&&(l=t.parentElement),l){const t=getComputedStyle(l),e=Math.ceil(l.clientWidth-parseFloat(t.paddingLeft)-parseFloat(t.paddingRight));e&&(c=e)}const m=Math.max(s,c),p=Math.max(o,1),g=`0 0 ${m} ${p}`;n(e,"width",`${m}`),n(e,"height",`${p}`),n(t,"preserveAspectRatio",getComputedStyle(t).getPropertyValue("--preserve-aspect-ratio")||"xMinYMin meet"),n(t,"viewBox",g)&&t.classList.toggle("__reflow__")}),e&&window.requestAnimationFrame(s)};s()}()}();
+</script><script>!function(){"use strict";var e={from:function(e,t){var n=1===(e.parent||e).nodeType?e.parent||e:document.querySelector(e.parent||e),r=[].filter.call("string"==typeof e.slides?n.querySelectorAll(e.slides):e.slides||n.children,function(e){return"SCRIPT"!==e.nodeName}),i=r[0],l={},o=function(e,t){r[e]&&(c("deactivate",u(i,t)),i=r[e],c("activate",u(i,t)))},s=function(e,t){var n=r.indexOf(i)+e;c(e>0?"next":"prev",u(i,t))&&o(n,t)},a=function(e,t){l[e]=(l[e]||[]).filter(function(e){return e!==t})},c=function(e,t){return(l[e]||[]).reduce(function(e,n){return e&&!1!==n(t)},!0)},u=function(e,t){return(t=t||{}).index=r.indexOf(e),t.slide=e,t},d={on:function(e,t){return(l[e]||(l[e]=[])).push(t),a.bind(null,e,t)},off:a,fire:c,slide:function(e,t){if(!arguments.length)return r.indexOf(i);c("slide",u(r[e],t))&&o(e,t)},next:s.bind(null,1),prev:s.bind(null,-1),parent:n,slides:r};return(t||[]).forEach(function(e){e(d)}),o(0),d}},t=function(){return function(e){e.slides.forEach(function(e){e.addEventListener("keydown",function(e){(/INPUT|TEXTAREA|SELECT/.test(e.target.nodeName)||"true"===e.target.contentEditable)&&e.stopPropagation()})})}};function n(e){e.parent.classList.add("bespoke-marp-parent"),e.slides.map(e=>e.classList.add("bespoke-marp-slide")),e.on("activate",t=>{e.slides.map(e=>e.classList.remove("bespoke-marp-active")),t.slide.classList.add("bespoke-marp-active")})}function r(e=2e3){return t=>{let n;function r(){n&&clearTimeout(n),n=setTimeout(()=>{t.parent.classList.add("bespoke-marp-inactive")},e),t.parent.classList.remove("bespoke-marp-inactive")}document.addEventListener("mousedown",r),document.addEventListener("mousemove",r),document.addEventListener("touchend",r),setTimeout(r,0)}}function i(e){let t=0,n=0;const r=e.slides.map(e=>[null,...e.querySelectorAll("[data-marpit-fragment]")]),i=e=>void 0!==r[t][n+e],l=(i,l)=>{t=i,n=l,r.forEach((e,t)=>{e.forEach((e,n)=>{if(null==e)return;const r=t<i||t===i&&n<=l;e.setAttribute("data-bespoke-marp-fragment",r?"active":"inactive"),t===i&&n===l?e.setAttribute("data-bespoke-marp-current-fragment","current"):e.removeAttribute("data-bespoke-marp-current-fragment")})}),e.fire("fragment",{slide:e.slides[i],index:i,fragments:r[i],fragmentIndex:l})};e.on("next",()=>{if(i(1))return l(t,n+1),!1;const e=t+1;r[e]&&l(e,0)}),e.on("prev",()=>{if(i(-1))return l(t,n-1),!1;const e=t-1;r[e]&&l(e,r[e].length-1)}),e.on("slide",({index:e,fragment:t})=>{let n=0;if(void 0!==t){const i=r[e];if(i){const{length:e}=i;n=-1===t?e-1:Math.min(Math.max(t,0),e-1)}}l(e,n)}),l(0,0)}var l,o=function(e,t){return e(t={exports:{}},t.exports),t.exports}(function(e){!function(){var t="undefined"!=typeof window&&void 0!==window.document?window.document:{},n=e.exports,r="undefined"!=typeof Element&&"ALLOW_KEYBOARD_INPUT"in Element,i=function(){for(var e,n=[["requestFullscreen","exitFullscreen","fullscreenElement","fullscreenEnabled","fullscreenchange","fullscreenerror"],["webkitRequestFullscreen","webkitExitFullscreen","webkitFullscreenElement","webkitFullscreenEnabled","webkitfullscreenchange","webkitfullscreenerror"],["webkitRequestFullScreen","webkitCancelFullScreen","webkitCurrentFullScreenElement","webkitCancelFullScreen","webkitfullscreenchange","webkitfullscreenerror"],["mozRequestFullScreen","mozCancelFullScreen","mozFullScreenElement","mozFullScreenEnabled","mozfullscreenchange","mozfullscreenerror"],["msRequestFullscreen","msExitFullscreen","msFullscreenElement","msFullscreenEnabled","MSFullscreenChange","MSFullscreenError"]],r=0,i=n.length,l={};r<i;r++)if((e=n[r])&&e[1]in t){for(r=0;r<e.length;r++)l[n[0][r]]=e[r];return l}return!1}(),l={change:i.fullscreenchange,error:i.fullscreenerror},o={request:function(e){return new Promise(function(n,l){var o,s=i.requestFullscreen,a=function(){this.off("change",a),n()}.bind(this);this.on("change",a),e=e||t.documentElement,o=/ Version\/5\.1(?:\.\d+)? Safari\//.test(navigator.userAgent)?e[s]():e[s](r?Element.ALLOW_KEYBOARD_INPUT:{}),Promise.resolve(o).catch(l)}.bind(this))},exit:function(){return new Promise(function(e){if(this.isFullscreen){var n=function(){this.off("change",n),e()}.bind(this);t[i.exitFullscreen](),this.on("change",n)}else e()}.bind(this))},toggle:function(e){return this.isFullscreen?this.exit():this.request(e)},onchange:function(e){this.on("change",e)},onerror:function(e){this.on("error",e)},on:function(e,n){var r=l[e];r&&t.addEventListener(r,n,!1)},off:function(e,n){var r=l[e];r&&t.removeEventListener(r,n,!1)},raw:i};i?(Object.defineProperties(o,{isFullscreen:{get:function(){return Boolean(t[i.fullscreenElement])}},element:{enumerable:!0,get:function(){return t[i.fullscreenElement]}},enabled:{enumerable:!0,get:function(){return Boolean(t[i.fullscreenEnabled])}}}),n?(e.exports=o,e.exports.default=o):window.screenfull=o):n?e.exports=!1:window.screenfull=!1}()});function s(e){e.fullscreen=()=>o&&o.toggle(document.body),document.addEventListener("keydown",t=>{70!==t.which&&122!==t.which||t.altKey||t.ctrlKey||t.metaKey||!o||!o.enabled||(e.fullscreen(),t.preventDefault())})}function a(e={}){const t=Object.assign({history:!0},e);return e=>{function n(){const t=parseInt(window.location.hash.slice(1),10);Number.isNaN(t)||function(t){const n=Math.max(0,Math.min(t,e.slides.length-1));n!==e.slide()&&e.slide(n)}(t-1)}setTimeout(()=>{n(),e.on("activate",e=>{t.history?window.location.hash=e.index+1:window.location.replace(`#${e.index+1}`)}),window.addEventListener("hashchange",n)},0)}}function c(e={}){const t=Object.assign({interval:200},e);return e=>{document.addEventListener("keydown",t=>{(32===t.which&&t.shiftKey||33===t.which||37===t.which||38===t.which)&&e.prev(),(32===t.which&&!t.shiftKey||34===t.which||39===t.which||40===t.which)&&e.next(),35===t.which&&e.slide(e.slides.length-1,{fragment:-1}),36===t.which&&e.slide(0)});let n,r,i=0;e.parent.addEventListener("wheel",o=>{let s=!1;const a=(e,t)=>{e&&(s=s||function(e,t){return function(e,t){const n=t===l.X?"Width":"Height";return e[`client${n}`]<e[`scroll${n}`]}(e,t)&&function(e,t){const{overflow:n}=e,r=e[`overflow${t}`];return"auto"===n||"scroll"===n||"auto"===r||"scroll"===r}(getComputedStyle(e),t)}(e,t)),e&&e.parentElement&&a(e.parentElement,t)};if(0!==o.deltaX&&a(o.target,l.X),0!==o.deltaY&&a(o.target,l.Y),s)return;o.preventDefault(),r&&clearTimeout(r),r=setTimeout(()=>{n=0},t.interval);const c=Date.now()-i<t.interval,u=Math.sqrt(Math.pow(o.deltaX,2)+Math.pow(o.deltaY,2)),d=u<=n;if(n=u,c||d)return;let f;(o.deltaX>0||o.deltaY>0)&&(f="next"),(o.deltaX<0||o.deltaY<0)&&(f="prev"),f&&(e[f](),i=Date.now())})}}function u(e=".bespoke-marp-osc"){const t=document.querySelector(e);if(!t)return()=>{};const n=(e,n)=>{t.querySelectorAll(`[data-bespoke-marp-osc=${JSON.stringify(e)}]`).forEach(n)};return o&&!o.enabled&&n("fullscreen",e=>e.style.display="none"),e=>{t.addEventListener("click",t=>{if(t.target instanceof HTMLElement)switch(t.target.dataset.bespokeMarpOsc){case"next":e.next();break;case"prev":e.prev();break;case"fullscreen":"function"==typeof e.fullscreen&&o&&o.enabled&&e.fullscreen()}}),e.parent.appendChild(t),e.on("activate",({index:t})=>{n("page",n=>n.textContent=`Page ${t+1} of ${e.slides.length}`)}),e.on("fragment",({index:t,fragments:r,fragmentIndex:i})=>{n("prev",e=>e.disabled=0===t&&0===i),n("next",n=>n.disabled=t===e.slides.length-1&&i===r.length-1)}),o&&o.onchange(()=>n("fullscreen",e=>e.classList.toggle("exit",o&&o.isFullscreen)))}}!function(e){e.X="X",e.Y="Y"}(l||(l={}));const d=".bespoke-progress-bar";function f(e){e.on("activate",t=>{document.querySelectorAll(d).forEach(n=>{n.style.flexBasis=`${100*t.index/(e.slides.length-1)}%`})})}function h(e={}){const t=Object.assign({slope:Math.tan(-35*Math.PI/180),swipeThreshold:30},e);return e=>{let n;const r=e.parent,i=e=>{const t=r.getBoundingClientRect();return{x:e.pageX-(t.left+t.right)/2,y:e.pageY-(t.top+t.bottom)/2}};r.addEventListener("touchstart",e=>{n=1===e.touches.length?i(e.touches[0]):void 0}),r.addEventListener("touchmove",e=>{if(n)if(1===e.touches.length){e.preventDefault();const t=i(e.touches[0]),r=t.x-n.x,l=t.y-n.y;n.delta=Math.sqrt(Math.pow(Math.abs(r),2)+Math.pow(Math.abs(l),2)),n.radian=Math.atan2(r,l)}else n=void 0}),r.addEventListener("touchend",r=>{if(n){if(n.delta&&n.delta>=t.swipeThreshold){let i=n.radian-t.slope;i=(i+Math.PI)%(2*Math.PI)-Math.PI,e[i<0?"next":"prev"](),r.stopPropagation()}n=void 0}})}}e.from(document.getElementById("presentation"),[t(),n,r(),a({history:!1}),c(),s,f,h(),u(),i])}();
+</script></body></html>
