@@ -5,6 +5,6 @@ Course materials for CSI4900/5900 - Software Engineering for Cyber-Physical Syst
 *Unless otherwise noted, all images used in slides are either royalty-free or otherwise fair use.*
 
 - [1 - Introduction](slides/CSI4900-Class1-Introduction.html)
-- [2 - Software Engineering Topics](slides/CSI4900-Class2-SE-topics.html)
+- [2 - Software Engineering Topics](slides/CSI4900-Class2-SE-Topics.html)
 - [2.1 - KAOS](slides/CSI4900-Class2.1-KAOS.html)
 
