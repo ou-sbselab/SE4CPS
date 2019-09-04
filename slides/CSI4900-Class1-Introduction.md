@@ -430,7 +430,11 @@ But, the human element is also to blame
 - Improper training led staff/nurses to use shortcuts or rapid key entries that caused the machine to go into the wrong power mode
 - From Wiki (https://en.wikipedia.org/wiki/Therac-25#Additional_reading):
 
-`The failure only occurred when a particular nonstandard sequence of keystrokes was entered on the VT-100 terminal which controlled the PDP-11 computer: an &quot;X&quot; to (erroneously) select 25 MeV photon mode followed by &quot;cursor up&quot;, &quot;E&quot; to (correctly) select 25 MeV Electron mode, then &quot;Enter&quot;, all within eight seconds. This sequence of keystrokes was improbable, and so the problem did not occur often and went unnoticed for a long time.`
+---
+
+# Therac 25
+
+`The failure only occurred when a particular nonstandard sequence of keystrokes was entered on the VT-100 terminal which controlled the PDP-11 computer: an "X"; to (erroneously) select 25 MeV photon mode followed by "cursor up", "E" to (correctly) select 25 MeV Electron mode, then "Enter", all within eight seconds. This sequence of keystrokes was improbable, and so the problem did not occur often and went unnoticed for a long time.`
 
 ---
 
