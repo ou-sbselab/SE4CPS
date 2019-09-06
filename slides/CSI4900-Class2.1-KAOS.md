@@ -79,1194 +79,482 @@ Examples of non-goals:
 
 ---
 
-Autonomous vehicle
+# Running Example
 
-Different types of sensors
+- Autonomous vehicle
+  - Different types of sensors
+    - E.g., camera and radar
 
-E.g., camera and radar
+  - Main objective: keep vehicle **within lane**
 
-Main objective: keep vehicle
+<center>
 
-within lane
+![](img/autonomous-sensors.png)
 
-Running Example
+</center>
 
+---
 
+# High-level vs. low-level goals
 
+- Order these goals from high level to low level
+  - Camera sensor provides data to processing unit
+  - Vehicle must always stay within lane markings
+  - Camera sensor must always be ON
+  - Camera sensor detects objects within 10 meters
 
+---
 
-Order these goals from high level to low level
+# High-level vs. low-level goals
 
-Camera sensor provides data to processing unit
+- Order these goals from high level to low level
+  - Camera sensor provides data to processing unit
+  - **(1) Vehicle must always stay within lane markings**
+  - Camera sensor must always be ON
+  - Camera sensor detects objects within 10 meters
 
-Vehicle must always stay within lane markings
+---
 
-Camera sensor must always be ON
+# High-level vs. low-level goals
 
-Camera sensor detects objects within 10 meters
+- Order these goals from high level to low level
+  - **(2) Camera sensor provides data to processing unit**
+  - (1) Vehicle must always stay within lane markings
+  - Camera sensor must always be ON
+  - Camera sensor detects objects within 10 meters
 
-High-level vs. low-level goals
+---
 
+# High-level vs. low-level goals
 
+- Order these goals from high level to low level
+  - (2) Camera sensor provides data to processing unit
+  - (1) Vehicle must always stay within lane markings
+  - Camera sensor must always be ON
+  - **(3) Camera sensor detects objects within 10 meters**
 
+---
 
+# High-level vs. low-level goals
 
-Order these goals from high level to low level
+- Order these goals from high level to low level
+  - (2) Camera sensor provides data to processing unit
+  - (1) Vehicle must always stay within lane markings
+  - **(4) Camera sensor must always be ON**
+  - (3) Camera sensor detects objects within 10 meters
 
-Camera sensor provides data to processing unit
+---
 
-(1) Vehicle must always stay within lane markings
+# High-level vs. low-level goals
 
-Camera sensor must always be ON
+- Order these goals from high level to low level
+  - Vehicle must always stay within lane markings
+  - Camera sensor provides data to processing unit
+  - Camera sensor detects objects within 10 meters
+  - Camera sensor must always be ON
 
-Camera sensor detects objects within 10 meters
+---
 
-High-level vs. low-level goals
+# Types of goals
 
+- **Functional goals**
+  - "Hard" goals
+  - Functions that system will perform
+  - Well-defined criteria for satisfaction
+    - E.g., vehicle always stays within lane markings
+- **Non-functional goals**
+  - "Soft" goals
+  - Desired system qualities
+  - Hard to define and quantify
+  - Reliability
+  - Quality
+    - E.g., automatic stop is not jarring to passenger
 
+---
 
+# Types of goals
 
+- **Safety goals**
+  - Ensure system consistently runs safely
+  - Does not endanger people or system itself
+    - E.g., sensor automatically shuts off if voltage exceeds maximum
 
-Order these goals from high level to low level
+- **Failsafe goals**
+  - Provide safe fallback state in case of error
+    - E.g., system shuts off if camera sensor is damaged
 
-(2) Camera sensor provides data to processing unit
+---
 
-(1) Vehicle must always stay within lane markings
+# Goal exercise
 
-Camera sensor must always be ON
+Identify the **goals** in the following paragraph:
 
-Camera sensor detects objects within 10 meters
+> Company X is designing a new autonomous vehicle.  Their autonomous vehicle system comprises at least two sensors: a camera and a radar.  Both the camera and radar are responsible for sensing objects at a minimum distance of 10 meters.  These sensors can communicate to a CPU via a secure CAN bus, at which point the CPU parses the incoming data. For safety purposes, at least one sensor must be active at all times.
 
-High-level vs. low-level goals
+---
 
+# Goal exercise
 
+Identify the **goals** in the following paragraph:
 
+> Company X is designing a new autonomous vehicle.  Their autonomous vehicle system comprises ```at least two sensors```: a camera and a radar.  Both the camera and radar are responsible for ```sensing objects at a minimum distance of 10 meters```.  These sensors can ```communicate to a CPU``` via a secure CAN bus, at which point the ```CPU parses the incoming data```.  For safety purposes, ```at least one sensor must be active at all times```.
 
+---
 
-Order these goals from high level to low level
+# Why do we use goal models?
 
-(2) Camera sensor provides data to processing unit
+* Provide rationale for requirements
 
-(1) Vehicle must always stay within lane markings
+* Identify stable information in system objectives
 
-Camera sensor must always be ON
+* Guide requirements elaboration / elicitation
 
-(3) Camera sensor detects objects within 10 meters
+* Provide visual depiction of relationships and dependencies between objectives
 
-High-level vs. low-level goals
+---
 
+![bg opacity:80%](img/robot.jpg)
 
+---
 
+# When to use goal models
 
+- Early in requirements engineering process
+  - Identify problems
+  - Explore solutions and alternatives
+  - Performed prior to UML modeling
+  - Continually refine goal model as new requirements or obstacles surface
 
-Order these goals from high level to low level
+<center>
 
-(2) Camera sensor provides data to processing unit
+![width:960px](img/se-process.png)
 
-(1) Vehicle must always stay within lane markings
+</center>
 
-(4) Camera sensor must always be ON
+---
 
-(3) Camera sensor detects objects within 10 meters
+# Goal modeling with KAOS
 
-High-level vs. low-level goals
+- Different approaches exist for creating goal models
+  - KAOS, i*, UML (use cases)
 
+- We will be using KAOS in this class for goal modeling
 
+---
 
+# KAOS notation
 
+- Refine goals into requirements
 
-Order these goals from high level to low level
+- Objects in KAOS goal model
+  - Goal
+  - Agent
+  - Requirement / Expectation
+  - Refinements
 
-Vehicle must always stay within lane markings
+---
 
-Camera sensor provides data to processing unit
+# KAOS notation
 
-Camera sensor detects objects within 10 meters
+![bg width:620px right:50%](img/kaos-blank.png)
 
-Camera sensor must always be ON
+---
 
-High-level vs. low-level goals
+# KAOS notation
 
+- Goals
 
+![bg width:620px right:50%](img/kaos-goals.png)
 
+---
 
+# KAOS notation
 
-Functional goals
+- Agent
+  - Agent can be human or sensor
 
-“Hard” goals
+![bg width:620px right:50%](img/kaos-agents.png)
 
-Functions that system will perform
+---
 
-Well-defined criteria for satisfaction
+# KAOS notation
 
-E.g., vehicle always stays within lane markings
+- Requirement/expectatoin
 
-Non-functional goals
+  - Requirement:
 
-“Soft” goals
+    - Automated component responsible
 
-Desired system qualities
+  - Expectation:
 
-Hard to define and quantify
+    - Environment responsible
 
-Reliability
+![bg width:620px right:50%](img/kaos-req-exp.png)
 
-Quality
+---
 
-E.g., automatic stop is not jarring to passenger
+# KAOS notation
 
-Types of goals
+![bg width:620px right:50%](img/kaos-and.png)
 
+---
 
+# KAOS notation
 
+![bg width:620px right:50%](img/kaos-or.png)
 
+---
 
+# Goal categories
 
+- Invariant
+  * Must **ALWAYS** be satisfied
+  * Safety, failsafe, or system invariants
+  * E.g., vehicle can never collide with an obstacle
 
+- Non-invariant
+  * Temporarily **tolerates** unsatisfied goal
+  * Transient conditions
+  * E.g., temporary sensor blockage / occlusion
 
+---
 
+# Goal examples
 
+![bg width:620px right:50%](img/kaos-blank.png)
 
+---
 
+# Goal examples
 
+- **Avoid** also considered invariant
+  - E.g., **Avoid** [Collision]
 
+![bg width:620px right:50%](img/kaos-invariant.png)
 
+---
 
+# Goal examples
 
+![bg width:620px right:50%](img/kaos-maintain.png)
 
-Safety goals
+---
 
-Ensure system consistently runs safely
+# Goal examples
 
-Does not endanger people or system itself
+![bg width:620px right:50%](img/kaos-non-invariant.png)
 
-E.g., sensor automatically shuts off if voltage exceeds maximum
+---
 
-Failsafe goals
+# Goal examples
 
-Provide safe fallback state in case of error
+![bg width:620px right:50%](img/kaos-achieve.png)
 
-E.g., system shuts off if camera sensor is damaged
+---
 
-Types of goals
+# Goal examples
 
+* All have been functional so far
 
+* What about non-functional goals?
+  * Soft / fuzzy goals?
 
+![bg width:620px right:50%](img/kaos-achieve.png)
 
+---
 
+# Goal examples
 
+* **No difference between functional and non-functional goal in KAOS!**
 
+![bg width:820px right:70%](img/kaos-non-fxn.png)
 
+---
 
+# Using models at run time
 
+- Goal models can provide measure of system performance
 
+- Is system satisfying its invariants?
 
+- How well is system satisfying its non-invariants?
 
-Identify the
+---
 
-goals
+# Utility functions
 
-in the following paragraph:
+- Derived mathematical function for each goal
 
-Company X is designing a new autonomous vehicle.  Their autonomous vehicle system comprises at least two sensors: a camera and a radar.  Both the camera and radar are responsible for sensing objects at a minimum distance of 10 meters.  These sensors can communicate to a CPU via a secure CAN bus, at which point the CPU parses the incoming data.
+- Provides **degree of satisfaction** for each goal
 
-For safety purposes, at least one sensor must be active at all times.
+  * Normalized on [0.0, 1.0]
 
-Goal exercise
+  * 0.0 	➔ goal is <font color="red">**violated**</font>
 
+  * 1.0 	➔ goal is <font color="green">**satisfied**</font>
 
+  * (0.0,1.0)	➔ goal is <font color="teal">***satisfied to some degree (i.e., "satisficed")***</font>
 
+---
 
+# Goal examples
 
-Identify the
+![bg width:480px right:40%](img/goal-util.png)
 
-goals
+<div style="background:yellow;padding:20px">
 
-in the following paragraph:
+Invariants are typically **boolean** functions
 
-Company X is designing a new autonomous vehicle.  Their autonomous vehicle system comprises at least two sensors: a camera and a radar.  Both the camera and radar are responsible for sensing objects at a minimum distance of 10 meters.  These sensors can communicate to a CPU via a secure CAN bus, at which point the CPU parses the incoming data.  For safety purposes, at least one sensor must be active at all times.
+**Goal (A) = 1.0** ***if vehicle has never crossed lane boundary***
 
-Goal exercise
+**Goal (A) = 0.0** ***otherwise***
 
+**Also, Goal (A) = 0.0 if (Goal (B) = 0.0) OR (Goal (C) = 0.0)**
 
+</div>
 
+---
 
+# Goal examples
 
+<div style="background:yellow;padding:20px;margin-bottom:20px;">
 
+- Non-invariants are typically real functions
 
+$Goal~(C) = 1.0 – \frac{|distance_{detected}-distance_{max}|}{distance_{max}}$
 
+</div>
 
+<div style="background:limegreen;padding:20px">
 
-Provide rationale for requirements
+***Detected at $8m$ instead of $10m$***
 
-Identify stable information in system objectives
+$Goal~(C) = 1.0 - \frac{|8.0 - 10.0|}{10.0}$
 
-Guide requirements elaboration / elicitation
+$Goal~(C) = 0.8$
 
-Provide visual depiction of relationships and dependencies between objectives
+</div>
 
-Why do we use goal models?
+![bg right:40% width:480px](img/goal-util.png)
 
+---
 
+# What can we do with a utility value?
 
+- Determine if an objective has been violated
+  - Or, determine if an objective is not being satisfied *enough*
 
+- Refactor goal model
 
+- Introduce a bugfix or patch
 
+- Reconfigure system
 
+---
 
-
-
-
-
-
-Early in requirements engineering process
-
-Identify problems
-
-Explore solutions and alternatives
-
-Performed prior to UML modeling
-
-Continually refine goal model as new requirements or obstacles surface
-
-When to use goal models
-
-Late RE
-
-Design
-
-Code
-
-Test
-
-Why?
-
-What?
-
-How?
-
-Early RE
-
-
-
-
-
-Different approaches exist for creating goal models
-
-KAOS, i*, UML (use cases)
-
-We will be using KAOS in this class for goal modeling
-
-Goal modeling with KAOS
-
-
-
-
-
-Refine goals into requirements
-
-Objects in KAOS goal model
-
-Goal
-
-Agent
-
-Requirement / Expectation
-
-Refinements
-
-KAOS notation
-
-
-
-
-
-KAOS notation
-
-Vehicle remains within lane markings
-
-Detect objects within 10
-
-m
-
-Send image data to processing unit
-
-Camera always ON
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Camera feed is always valid
-
-Camera
-
-
-
-
-
-Goals
-
-KAOS notation
-
-Vehicle remains within lane markings
-
-Detect objects within 10
-
-m
-
-Send image data to processing unit
-
-Camera always ON
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Camera feed is always valid
-
-Camera
-
-
-
-
-
-Agent
-
-Agent can be human or sensor
-
-KAOS notation
-
-Vehicle remains within lane markings
-
-Detect objects within 10
-
-m
-
-Send image data to processing unit
-
-Camera always ON
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Camera feed is always valid
-
-Camera
-
-
-
-
-
-Requirement / Expectation
-
-Requirement:
-
-Automated component responsible
-
-Expectation:
-
-Environment responsible
-
-
-
-KAOS notation
-
-Vehicle remains within lane markings
-
-Detect objects within 10
-
-m
-
-Send image data to processing unit
-
-Camera always ON
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Camera feed is always valid
-
-Camera
-
-
-
-
-
-KAOS notation
-
-AND-refinement
-
-Vehicle remains within lane markings
-
-Detect objects within 10
-
-m
-
-Send image data to processing unit
-
-Camera always ON
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Camera feed is always valid
-
-Camera
-
-
-
-
-
-KAOS notation
-
-OR-refinement
-
-Vehicle remains within lane markings
-
-Detect objects within 10
-
-m
-
-Send image data to processing unit
-
-Camera always ON
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Camera feed is always valid
-
-Camera
-
-
-
-
-
-Invariant
-
-Must
-
-ALWAYS
-
-be satisfied
-
-Safety, failsafe, or system invariants
-
-E.g., vehicle can never collide with an obstacle
-
-Non-invariant
-
-Temporarily
-
-tolerate
-
-unsatisfied goal
-
-Transient conditions
-
-E.g., sensor temporarily occluded
-
-Goal categories
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Goal examples
-
-Vehicle
-
-remains
-
-within lane markings
-
-Detect objects within 10
-
-m
-
-Send image data to processing
-
-unit
-
-Camera always ON
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Camera feed is always valid
-
-Camera
-
-
-
-
-
-Goal examples
-
-Vehicle remains within lane markings
-
-(A)
-
-(D)
-
-Maintain
-
-[Vehicle remains within lane markings]
-
-Invariant goal
-
-(A)
-
-(
-
-Avoid
-
-also considered invariant)
-
-E.g.,
-
-Avoid
-
-[Collision]
-
-
-
-
-
-
-Goal examples
-
-Maintain
-
-[Vehicle remains within lane markings]
-
-Detect objects within 10
-
-m
-
-Send image data to processing unit
-
-Camera always ON
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Camera feed is always valid
-
-Camera
-
-
-
-
-
-Goal examples
-
-Detect objects within 10
-
-m
-
-(D)
-
-Achieve
-
-[Detect objects within 10
-
-m]
-
-(D)
-
-Non-invariant
-
-goal
-
-
-
-
-
-Goal examples
-
-Maintain
-
-[Vehicle remains within lane markings]
-
-Achieve
-
-[Detect objects within 10
-
-m]
-
-Achieve
-
-[Send image data to processing unit]
-
-Achieve
-
-[Camera always ON]
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Achieve
-
-[Camera feed is always valid]
-
-Camera
-
-
-
-
-
-All have been functional so far…
-
-What about non-functional?
-
-Soft / fuzzy goals?
-
-Goal examples
-
-Maintain
-
-[Vehicle remains within lane markings]
-
-Achieve
-
-[Detect objects within 10
-
-m]
-
-Achieve
-
-[Send image data to processing unit]
-
-Achieve
-
-[Camera always ON]
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Achieve
-
-[Camera feed is always valid]
-
-Camera
-
-
-
-
-
-Goal examples
-
-Maintain
-
-[Vehicle remains within lane markings]
-
-Achieve
-
-[Detect objects within 10
-
-m]
-
-Achieve
-
-[Send image data to processing unit]
-
-Achieve
-
-[Camera always ON]
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Achieve
-
-[Camera feed is always valid]
-
-Camera
-
-Achieve
-
-[Vehicle drives smoothly]
-
-(F)
-
-
-
-
-
-Goal examples
-
-Maintain
-
-[Vehicle remains within lane markings]
-
-Achieve
-
-[Detect objects within 10
-
-m]
-
-Achieve
-
-[Send image data to processing unit]
-
-Achieve
-
-[Camera always ON]
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Achieve
-
-[Camera feed is always valid]
-
-Camera
-
-Achieve
-
-[Vehicle drives smoothly]
-
-(F)
-
-No difference between functional and non-functional goal in KAOS!
-
-
-
-
-
-Goal models can provide measure of system performance
-
-Is system satisfying its invariants
-
-How well is system satisfying its non-invariants?
-
-Using models at run time
-
-
-
-
-
-Derived mathematical function for each goal
-
-Provides
-
-degree of satisfaction
-
-for each goal
-
-Normalized on [0.0, 1.0]
-
-0.0 	➔ goal is
-
-violated
-
-1.0 	➔ goal is
-
-satisfied
-
-(0.0,1.0)	➔ goal is
-
-satisfied to some degree (i.e., “satisficed”)
-
-Utility functions
-
-
-
-
-
-
-
-
-
-
-
-
-Maintain
-
-[Vehicle remains within lane markings]
-
-Detect objects within 10
-
-m
-
-Send image data to processing unit
-
-Camera always ON
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Camera feed is always valid
-
-Camera
-
-Goal examples
-
-Invariants are typically Boolean functions
-
-Goal (A) = 1.0 if vehicle has never crossed lane boundary
-
-Goal (A) = 0.0 otherwise
-
-Also, Goal (A) = 0.0 if (Goal (B) = 0.0) OR (Goal (C) = 0.0)
-
-
-
-
-
-Maintain
-
-[Vehicle remains within lane markings]
-
-Detect objects within 10
-
-m
-
-Send image data to processing unit
-
-Camera always ON
-
-(A)
-
-(D)
-
-(B)
-
-(C)
-
-(E)
-
-Camera feed is always valid
-
-Camera
-
-Goal examples
-
-Non-invariants are typically real functions
-
-Goal (C) = 1.0 – |distance
-
-detected
-
-– distance
-
-max
-
-|
-
-distance
-
-max
-
-Detected at 8m instead of 10m
-
-Goal (C) = 1.0 - |8.0-10.0|
-
-10.0
-
-Goal (C) = 0.8
-
-
-
-
-
-Determine if an objective has been violated
-
-Or, determine if an objective is not being satisfied
-
-enough
-
-Refactor goal model
-
-Introduce a bugfix or patch
-
-Reconfigure system
-
-What can we do with a utility value?
-
-
-
-
-
-
-
-
-
-
+# Assignment Part 1
 
 Derive goal model based on requirements specification for your term project
 
-Must have at minimum:
+- Must have at minimum:
+  - **(2)** Invariant goals
+  - **(6)** Non-invariant goals
+  - **(3)** System agents
+  - **(2)** AND- and **(2)** OR- refinements
 
-(2)
+---
 
-Invariant goals
+# Other types of KAOS models
 
-(6)
+- Responsibility models
 
-Non-invariant goals
+- Operation models
 
-(3)
+- Object models
 
-System agents
+- Obstacle models
 
-(2)
+---
 
-AND- and
+# Responsibility models
 
-(2)
+- Describes:
+  - Agent
+  - Requirements/expectations agent is responsible for
 
-OR- refinements
+<center>
 
-Assignment Part 1
+![width:640px](img/kaos-responsibility.png)
 
+</center>
 
+---
 
+# Object models
 
+- Objects can be entities within a goal model (that are not agents)
+  - Audio alarm if vehicle crosses lane marking
 
+<center>
 
+![width:940px](img/kaos-object.png)
 
+</center>
 
+---
 
-Responsibility models
+# Operation models
 
-Operation models
+- Describes behaviors agents need to fulfill the goals they are responsible for
+  - Requirements/expectations
 
-Object models
+<center>
 
-Obstacle models
+![width:540px](img/kaos-operation.png)
 
-Other types of KAOS models
+</center>
 
+---
 
+# Obstacle models
 
+- Defines an obstacle to goal satisfaction
+- Attempt to identify resolve obstacles in advance by refining goal model
 
+<center>
 
-Describes:
+![width:940px](img/kaos-obstacle.png)
 
-Agent
+</center>
 
-Requirements/expectations agent is responsible for
+---
 
-Responsibility models
+# Agents/Assumptions
 
-Camera
+<center>
 
-Camera always ON
+![width:980px](img/kaos-healthcare.png)
 
-Camera feed valid
+</center>
 
-…
+<a style="font-size:0.9em" href="http://foswiki.cs.uu.nl/foswiki/pub/MethodEngineering/ACaseStdElicScalReq1314/figure1.png/">foswiki</a>
 
-…
+---
 
+# <!-- fit -->MetaModel
 
+<a style="font-size:0.9em" href="http://www.respect-it.com/uploads/pics/kaos_metamodel_en_01.jpg">Respect-IT</a>
 
+![bg right:80%](img/kaos-metamodel.jpg)
 
+---
 
-Objects can be entities within a goal model (that are not agents)
+# Assignment Part 2
 
-Audio alarm if vehicle crosses lane marking
+- For your original goal model:
+  - Define at least 2 utility functions to assess the satisfaction and/or satisficement of a goal
+  - Identify sources of uncertainty and how to account for them in your goal model?
 
-Object models
-
-Audio alarm
-
-Maintain
-
-[Vehicle remains within lane markings]
-
-Detect objects within 10
-
-m
-
-Send image data to processing unit
-
-(A)
-
-(B)
-
-(C)
-
-…
-
-
-
-
-
-Describes behaviors agents need to fulfill the goals they are responsible for
-
-Requirements/expectations
-
-Operation models
-
-Camera
-
-Camera always ON
-
-Power on camera
-
-Input
-
-Output
-
-
-
-
-
-Defines an obstacle to goal satisfaction
-
-Attempt to identify resolve obstacles in advance by refining goal model
-
-Obstacle models
-
-Camera
-
-Camera sensor damaged
-
-Camera
-
-Camera performs self-diagnostics
-
-
-
-
-
-
-
-
-
-Agents/Assumptions
-
-http://foswiki.cs.uu.nl/foswiki/pub/MethodEngineering/ACaseStdElicScalReq1314/figure1.png
-
-
-
-
-
-KAOS MetaModel
-
-http://www.respect-it.com/uploads/pics/kaos_metamodel_en_01.jpg
-
-
-
-
-
-For your original goal model:
-
-Define at least 2 utility functions to assess the satisfaction and/or satisficement of a goal
-
-Identify sources of uncertainty and how to account for them in your goal model?
-
-Define an obstacle model to complement your homework assignment
-
-Define
-
-(2) obstacles
-
-to the success of your goal model
-
-Provide a strategy for resolving each
-
-Assignment Part 2
-
+- Define an obstacle model to complement your homework assignment
+  - Define **(2) obstacles** to the success of your goal model
+  - Provide a strategy for resolving each
